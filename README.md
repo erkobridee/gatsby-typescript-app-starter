@@ -4,7 +4,7 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's typescript starter
+  Gatsby's typescript application starter
 </h1>
 
 Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
@@ -18,14 +18,14 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     Use the Gatsby CLI to create a new site, specifying the default starter.
 
     ```sh
-    # create a new Gatsby site using the typescript starter
-    gatsby new my-typescript-starter https://github.com/erkobridee/gatsby-typescript-starter
+    # create a new Gatsby site using the typescript application starter
+    gatsby new my-typescript-app-starter https://github.com/erkobridee/gatsby-typescript-app-starter
     ```
 
     Another way to create the a new project without having the Gatsby CLI
 
     ```sh
-    npx gatsby new my-typescript-starter https://github.com/erkobridee/gatsby-typescript-starter
+    npx gatsby new my-typescript-app-starter https://github.com/erkobridee/gatsby-typescript-app-starter
     ```
 
     **TIP:** double check if you need to have the _**.git**_ directory or you should delete it
@@ -35,11 +35,11 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    cd my-typescript-starter/
-    gatsby develop
+    cd my-typescript-app-starter/
+    npm start
     ```
 
-    or you can also use: `npm start`
+    or you can also use: `npm run develop`
 
 1.  **Open the source code and start editing!**
 
@@ -47,22 +47,25 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-typescript-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `my-typescript-app-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+A quick look at the top-level files and directories you'll see in this project.
 
     .
     ├── node_modules
+    ├── scripts
     ├── src
-    ├── .gitignore
+    ├── .babelrc.js
     ├── .eslintrc
+    ├── .gitignore
     ├── .prettierrc
     ├── gatsby-browser.js
     ├── gatsby-config.js
     ├── gatsby-node.js
     ├── gatsby-ssr.js
+    ├── gatsby-wrap-root-element.js
     ├── LICENSE
     ├── package-lock.json
     ├── package.json
