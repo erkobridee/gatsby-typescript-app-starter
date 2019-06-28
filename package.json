@@ -47,6 +47,7 @@
 		"postcss-preset-env": "^6.6.0",
 		"prettier": "^1.18.2",
 		"react-intl-translations-manager": "^5.0.3",
+		"rimraf": "^2.6.3",
 		"typescript": "^3.5.2"
 	},
 	"keywords": [
@@ -56,20 +57,22 @@
 	],
 	"license": "MIT",
 	"scripts": {
+		"translations:clean-messages": "rimraf .i18nExtractedMessages/",
 		"translations:extract": "TRANSLATIONS=true babel src --extensions '.ts,.tsx' --out-file .i18nExtractedMessages/compiled.js",
-		"translations:runner": "node ./translation-runner.js",
+		"translations:runner": "node ./scripts/translation-runner.js",
 		"translations": "npm-run-all -s translations:extract translations:runner",
 		"format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
 		"lint": "eslint 'src/**/*.{ts,tsx}'",
-		"gatsby-develop": "gatsby develop -H 0.0.0.0",
-		"develop": "npm-run-all -s translations gatsby-develop",
-		"start": "npm run develop",
 		"type-check": "tsc",
-		"check": "npm-run-all -s type-check lint",
-		"clean": "gatsby clean",
+		"gatsby-clean": "gatsby clean",
+		"gatsby-develop": "gatsby develop -H 0.0.0.0",
 		"gatsby-build": "gatsby build",
-		"build": "npm-run-all -s check clean translations gatsby-build ",
 		"gatsby-serve": "gatsby serve -H 0.0.0.0",
+		"develop": "npm-run-all -s translations gatsby-develop",
+		"clean": "npm-run-all -p translations:clean-messages gatsby-clean",
+		"start": "npm run develop",
+		"check": "npm-run-all -s type-check lint",
+		"build": "npm-run-all -s check clean translations gatsby-build ",
 		"serve": "npm-run-all -s build gatsby-serve"
 	},
 	"browserslist": [
