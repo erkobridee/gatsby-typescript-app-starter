@@ -7,7 +7,7 @@ import 'whatwg-fetch';
 
 import './src/helpers/console';
 import cssVariableTransform from './src/helpers/cssVariableTransform';
-import withWrapper from './gatsby-with-wrapper';
+import withWrapper from './gatsby-wrap-root-element';
 
 // eslint-disable-next-line import/prefer-default-export
 export const onClientEntry = () => {

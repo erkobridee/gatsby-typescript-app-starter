@@ -4,6 +4,6 @@
  * See: https://www.gatsbyjs.org/docs/ssr-apis/
  */
 
-import withWrapper from './gatsby-with-wrapper';
+import withWrapper from './gatsby-wrap-root-element';
 
 export const wrapRootElement = withWrapper;
