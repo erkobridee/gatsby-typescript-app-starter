@@ -1,20 +1,41 @@
 <p align="center">
-  <a href="https://www.awempire.com">
-    <img src="https://resourcex2.dditscdn.com/v2a99d4c0/site/npp/img/logo_awe_gray.png" alt="AWE Logo">
+  <a href="https://www.gatsbyjs.org">
+    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
   </a>
 </p>
 <h1 align="center">
-  AWE (Adult Webmaster Empire) Live API Demo Site front-end
+  Gatsby's typescript starter
 </h1>
+
+Kick off your project with this default boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
 ## 🚀 Quick start
 
-1.  **Start developing.**
+1.  **Create a Gatsby site.**
 
-    On the front-end project directory
+    Use the Gatsby CLI to create a new site, specifying the default starter.
 
     ```sh
-    npm i
+    # create a new Gatsby site using the typescript starter
+    gatsby new my-typescript-starter https://github.com/erkobridee/gatsby-typescript-starter
+    ```
+
+    Another way to create the a new project without having the Gatsby CLI
+
+    ```sh
+    npx gatsby new my-typescript-starter https://github.com/erkobridee/gatsby-typescript-starter
+    ```
+
+    **TIP:** double check if you need to have the _**.git**_ directory or you should delete it
+
+1.  **Start developing.**
+
+    Navigate into your new site’s directory and start it up.
+
+    ```sh
+    cd my-typescript-starter/
     gatsby develop
     ```
 
@@ -26,7 +47,7 @@
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the current directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+    Open the `my-typescript-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
@@ -74,6 +95,8 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 ## 💻 Available Commands
 
+-   generate translations using react-intl: `npm run translations`
+
 -   format the code using the prettier: `npm run format`
 
 -   lint the code using the eslint: `npm run lint`
@@ -102,8 +125,12 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
     -   added a temporary solution described on the issue comments
 
--   the project has the configuration to be able to use absolute imports on the code ( [Gatsby Docs - Absolute imports](https://www.gatsbyjs.org/docs/add-custom-webpack-config/#absolute-imports) )
-
--   production build issue when has the `window` on the code, check the [gatsbyjs / gatsby - issue 12427](https://github.com/gatsbyjs/gatsby/issues/12427)
-
 -   the project has the redux on it and its follow the re-ducks pattern, read more about on this links [Scaling your Redux App with ducks](https://www.freecodecamp.org/news/scaling-your-redux-app-with-ducks-6115955638be/) and check this [example](FortechRomania/react-redux-complete-example)
+
+-   Gatsby
+
+    -   production build issue when has the `window` on the code, check the [gatsbyjs / gatsby - issue 12427](https://github.com/gatsbyjs/gatsby/issues/12427)
+
+    -   the project has the configuration to be able to use absolute imports on the code ( [Gatsby Docs - Absolute imports](https://www.gatsbyjs.org/docs/add-custom-webpack-config/#absolute-imports) )
+
+    -   [Gatsby Docs - How to use a custom `.babelrc` file](https://www.gatsbyjs.org/docs/babel/#how-to-use-a-custom-babelrc-file)
