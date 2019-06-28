@@ -68,10 +68,10 @@
 		"gatsby-develop": "gatsby develop -H 0.0.0.0",
 		"gatsby-build": "gatsby build",
 		"gatsby-serve": "gatsby serve -H 0.0.0.0",
-		"develop": "npm-run-all -s translations gatsby-develop",
 		"clean": "npm-run-all -p translations:clean-messages gatsby-clean",
-		"start": "npm run develop",
 		"check": "npm-run-all -s type-check lint",
+		"develop": "npm-run-all -s check translations gatsby-develop",
+		"start": "npm run develop",
 		"build": "npm-run-all -s check clean translations gatsby-build ",
 		"serve": "npm-run-all -s build gatsby-serve"
 	},
