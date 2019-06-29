@@ -1,3 +1,5 @@
+import { LocaleData } from 'react-intl';
+
 // ---------------------------------------------------------------------------- //
 // @begin: constants block
 
@@ -31,6 +33,12 @@ export type TRender<T = any> = TRenderFunction<T> | React.ReactNode;
 // @end: types block
 // ---------------------------------------------------------------------------- //
 // @begin: interfaces block
+
+export interface ILocale {
+	locale: string;
+	localeData: LocaleData;
+	messages: { [key: string]: string };
+}
 
 export interface IProjectWindow extends Window {
 	CSS?: any;

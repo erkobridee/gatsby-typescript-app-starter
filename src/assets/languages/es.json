@@ -2,10 +2,14 @@
   "404.message": "You just hit a route that doesn't exist... the sadness.",
   "404.title": "404: Not found",
   "home.gobuild": "Now go build something great.",
-  "home.greeting": "Hi people",
-  "home.pagetitle": "Home",
-  "home.welcome": "Welcome to your new Gatsby site.",
-  "page2.link": "Go back to the homepage",
-  "page2.title": "Hi from the second page",
-  "page2.welcome": "Welcome to page 2"
+  "home.greeting": "Hola personas",
+  "home.pagetitle": "Casa",
+  "home.welcome": "Bien venido a su nuevo Gatsby site.",
+  "language.selector.label": "Select another available language",
+  "language.selector.option.english": "English",
+  "language.selector.option.portuguese": "Portuguese",
+  "language.selector.option.spanish": "Español",
+  "page2.link": "Retornar para la homepage",
+  "page2.title": "Hola asta la secunda pagina",
+  "page2.welcome": "Bien venido a la pagina 2"
 }

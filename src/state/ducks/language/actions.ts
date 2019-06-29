@@ -1,8 +1,8 @@
-import { LanguageActionTypes as Types, ILanguageAction } from './definitions';
+import { LanguageActionTypes as Types, ILanguageAction, ILanguageState } from './definitions';
 
-export const updateLanguage = (locale: string): ILanguageAction => ({
+export const updateLanguage = (payload: ILanguageState): ILanguageAction => ({
 	type: Types.UPDATE,
-	payload: locale,
+	payload,
 });
 
 export const resetLanguage = (): ILanguageAction => ({

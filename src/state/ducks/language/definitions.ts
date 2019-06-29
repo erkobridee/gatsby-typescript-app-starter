@@ -5,8 +5,9 @@ export enum LanguageActionTypes {
 	RESET = 'language/RESET',
 }
 
-export interface ILanguageAction extends IAction<string> {}
-
 export interface ILanguageState {
 	locale: string;
+	messages?: { [key: string]: string };
 }
+
+export interface ILanguageAction extends IAction<ILanguageState> {}

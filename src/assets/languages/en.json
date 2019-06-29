@@ -5,6 +5,10 @@
   "home.greeting": "Hi people",
   "home.pagetitle": "Home",
   "home.welcome": "Welcome to your new Gatsby site.",
+  "language.selector.label": "Select another available language",
+  "language.selector.option.english": "English",
+  "language.selector.option.portuguese": "Portuguese",
+  "language.selector.option.spanish": "Spanish",
   "page2.link": "Go back to the homepage",
   "page2.title": "Hi from the second page",
   "page2.welcome": "Welcome to page 2"

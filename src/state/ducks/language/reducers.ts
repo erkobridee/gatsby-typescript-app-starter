@@ -9,10 +9,8 @@ const initialState: ILanguageState = {
 
 const reducerMap: IReducerMap<ILanguageState, ILanguageAction> = {
 	[Types.UPDATE]: (_, action) => {
-		const { payload = browserLocale } = action;
-		return {
-			locale: payload,
-		};
+		const { payload } = action;
+		return payload || initialState;
 	},
 	[Types.RESET]: () => initialState,
 };

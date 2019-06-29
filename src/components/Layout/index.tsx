@@ -8,6 +8,7 @@
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import LanguageSelector from 'components/LanguageSelector';
 import Header from './Header';
 
 import './_styles.scss';
@@ -40,9 +41,12 @@ const Layout: React.FunctionComponent<ILayout> = ({ children }) => {
 			>
 				<main>{children}</main>
 				<footer>
-					© {new Date().getFullYear()}, Built with
-					{` `}
-					<a href="https://www.gatsbyjs.org">Gatsby</a>
+					<p>
+						© {new Date().getFullYear()}, Built with
+						{` `}
+						<a href="https://www.gatsbyjs.org">Gatsby</a>
+					</p>
+					<LanguageSelector />
 				</footer>
 			</div>
 		</>
