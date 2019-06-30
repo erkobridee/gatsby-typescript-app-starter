@@ -3,7 +3,8 @@
   "404.title": "404: Not found",
   "home.gobuild": "Now go build something great.",
   "home.greeting": "Hi people",
-  "home.link": "Go to page 2",
+  "home.link-page2": "Go to page 2",
+  "home.link-photos": "Go to photos",
   "home.pagetitle": "Home",
   "home.welcome": "Welcome to your new Gatsby site.",
   "language.selector.label": "Select another available language",
@@ -13,5 +14,6 @@
   "layout.build-with": "Built with",
   "page2.link": "Go back to the homepage",
   "page2.title": "Hi from the second page",
-  "page2.welcome": "Welcome to page 2"
+  "page2.welcome": "Welcome to page 2",
+  "photos.pagetitle": "Photos"
 }

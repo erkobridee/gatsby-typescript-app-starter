@@ -16,9 +16,10 @@ import './_styles.scss';
 
 interface ILayout {
 	children: React.ReactNode;
+	displayFooter?: boolean;
 }
 
-const Layout: React.FunctionComponent<ILayout> = ({ children }) => {
+const Layout: React.FunctionComponent<ILayout> = ({ children, displayFooter = true }) => {
 	const data = useStaticQuery(graphql`
 		query SiteTitleQuery {
 			site {
@@ -41,15 +42,17 @@ const Layout: React.FunctionComponent<ILayout> = ({ children }) => {
 				}}
 			>
 				<main>{children}</main>
-				<footer>
-					<p>
-						© {new Date().getFullYear()},{' '}
-						<FormattedMessage id="layout.build-with" defaultMessage="Built with" />
-						{` `}
-						<a href="https://www.gatsbyjs.org">Gatsby</a>
-					</p>
-					<LanguageSelector />
-				</footer>
+				{displayFooter && (
+					<footer>
+						<p>
+							© {new Date().getFullYear()},{' '}
+							<FormattedMessage id="layout.build-with" defaultMessage="Built with" />
+							{` `}
+							<a href="https://www.gatsbyjs.org">Gatsby</a>
+						</p>
+						<LanguageSelector />
+					</footer>
+				)}
 			</div>
 		</>
 	);

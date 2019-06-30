@@ -24,9 +24,15 @@ const IndexPage = () => {
 			<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
 				<GatsbyAstronoutImage />
 			</div>
-			<Link to="/page-2/">
-				<FormattedMessage id="home.link" defaultMessage="Go to page 2" />
-			</Link>
+			<div>
+				<Link to="/page-2/">
+					<FormattedMessage id="home.link-page2" defaultMessage="Go to page 2" />
+				</Link>{' '}
+				{' | '}
+				<Link to="/photos/">
+					<FormattedMessage id="home.link-photos" defaultMessage="Go to photos" />
+				</Link>
+			</div>
 		</Layout>
 	);
 };
