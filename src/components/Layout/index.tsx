@@ -7,6 +7,7 @@
 
 import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { FormattedMessage } from 'react-intl';
 
 import LanguageSelector from 'components/LanguageSelector';
 import Header from './Header';
@@ -42,7 +43,8 @@ const Layout: React.FunctionComponent<ILayout> = ({ children }) => {
 				<main>{children}</main>
 				<footer>
 					<p>
-						© {new Date().getFullYear()}, Built with
+						© {new Date().getFullYear()},{' '}
+						<FormattedMessage id="layout.build-with" defaultMessage="Built with" />
 						{` `}
 						<a href="https://www.gatsbyjs.org">Gatsby</a>
 					</p>
