@@ -1,2 +1,19 @@
 [
+  "language.selector.option.english",
+  "language.selector.option.spanish",
+  "language.selector.option.portuguese",
+  "language.selector.label",
+  "layout.build-with",
+  "404.title",
+  "404.message",
+  "home.pagetitle",
+  "home.greeting",
+  "home.welcome",
+  "home.gobuild",
+  "home.link-page2",
+  "home.link-photos",
+  "page2.title",
+  "page2.welcome",
+  "page2.link",
+  "photos.pagetitle"
 ]
