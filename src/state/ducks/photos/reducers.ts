@@ -10,7 +10,6 @@ const initialState: IPhotosState = {
 const reducerMap: IReducerMap<IPhotosState, IPhotosAction> = {
 	[Types.LOADED]: ({ list: previousList }, action) => {
 		const { payload: { list, hasMore } = initialState } = action;
-		console.log({ previousList, list });
 		return {
 			list: [...previousList, ...list],
 			hasMore,

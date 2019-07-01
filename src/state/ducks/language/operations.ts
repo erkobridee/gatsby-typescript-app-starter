@@ -6,7 +6,6 @@ import { ILanguageAction } from './definitions';
 
 export const changeLanguage = (locale?: string) => async (dispatch: Dispatch<ILanguageAction>) => {
 	const { localeData, ...payload } = await loadLocale(locale);
-	console.log({ localeData, payload });
 	addLocaleData(localeData);
 	dispatch(updateLanguage(payload));
 };

@@ -10,7 +10,6 @@ export const IntlWrapper: React.FunctionComponent = ({ children }) => {
 	const { locale } = language;
 
 	React.useEffect(() => {
-		console.log(language);
 		if (!language.messages) {
 			dispatch(changeLanguage());
 		}
