@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IProjectWindow, TO_STRING, JSTypeofEnum, TFunction } from './definitions';
+import { IProjectWindow, TO_STRING, JSTypeof, TFunction } from './definitions';
 
 // ---------------------------------------------------------------------------- //
 // @begin: pre defined values
@@ -20,19 +20,19 @@ export const hasCssVariablesSupport = isBrowser && CSS && CSS.supports && CSS.su
 // @begin: check values
 
 export const isFunction = <T extends TFunction>(value: any): value is T =>
-	value !== null && typeof value === JSTypeofEnum.FUNCTION;
+	value !== null && typeof value === JSTypeof.FUNCTION;
 
 export const isUndefined = <T extends object>(value: any): value is T =>
-	value !== null && typeof value === JSTypeofEnum.UNDEFINED;
+	value !== null && typeof value === JSTypeof.UNDEFINED;
 
 const isObjectBasicCheck = <T extends object>(value: any): value is T =>
-	value !== null && typeof value === JSTypeofEnum.OBJECT;
+	value !== null && typeof value === JSTypeof.OBJECT;
 
 export const isObject = <T extends object>(value: any): value is T =>
 	isObjectBasicCheck(value) && TO_STRING.call(value) === '[object Object]';
 
 export const isString = <T extends string>(value: any): value is T =>
-	value !== null && typeof value === JSTypeofEnum.STRING && TO_STRING.call(value) === '[object String]';
+	value !== null && typeof value === JSTypeof.STRING && TO_STRING.call(value) === '[object String]';
 
 export const isReactElement = <T extends React.ReactNode>(value: any): value is T =>
 	isObjectBasicCheck(value) && '$$typeof' in value;
