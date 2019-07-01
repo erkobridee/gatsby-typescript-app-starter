@@ -1,4 +1,4 @@
-import buildRequest from 'helpers/buildRequest';
+import buildRequest from 'helpers/fetch/buildRequest';
 import { isNumber } from 'helpers/check';
 import { IAPIResponse, APIResponseStatus, DEFAULT_PAGE_SIZE } from 'helpers/definitions';
 import PhotoModel from 'data/models/Photos';

@@ -10,7 +10,7 @@ import {
 	IRequestOptions,
 	IAPIResponse,
 	TAPIResponse,
-} from './definitions';
+} from 'helpers/definitions';
 import readImageBlobAsDataURL from './readImageBlobAsDataURL';
 
 /**
