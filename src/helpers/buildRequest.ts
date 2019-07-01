@@ -24,19 +24,14 @@ import readImageBlobAsDataURL from './readImageBlobAsDataURL';
 function buildResponseOutput<R extends IAPIResponse = TAPIResponse>(response: Response, bodyObject: any = {}): R {
 	const { status, headers } = response;
 	return {
-		...bodyObject,
-		get __metadata__() {
-			return {
-				get statusCode() {
-					return status;
-				},
-				get headers() {
-					return headers;
-				},
-				get body() {
-					return bodyObject;
-				},
-			};
+		get statusCode() {
+			return status;
+		},
+		get headers() {
+			return headers;
+		},
+		get body() {
+			return bodyObject;
 		},
 	} as R;
 }
@@ -48,7 +43,7 @@ function buildResponseOutput<R extends IAPIResponse = TAPIResponse>(response: Re
  *
  * @returns {Promise<R extends IAPIResponse = IAPIResponse>} promise
  */
-export async function buildRequest<R extends IAPIResponse = TAPIResponse>(options: IRequestOptions): Promise<R> {
+export async function buildRequest<R extends IAPIResponse = IAPIResponse>(options: IRequestOptions): Promise<R> {
 	let { parameters } = options;
 	const {
 		authorization,
@@ -151,9 +146,7 @@ export async function buildRequest<R extends IAPIResponse = TAPIResponse>(option
 		if (contentType === RequestContentTypes.IMAGE) {
 			const imageBlob = await response.blob();
 			const imageAsString = await readImageBlobAsDataURL(imageBlob);
-			outputObject = {
-				data: imageAsString,
-			};
+			outputObject = imageAsString;
 		} else {
 			try {
 				outputObject = await response.json();
@@ -169,7 +162,7 @@ export async function buildRequest<R extends IAPIResponse = TAPIResponse>(option
 		} catch (e) {
 			finalError = error;
 		}
-		throw buildResponseOutput<R>(error, { error: finalError });
+		throw buildResponseOutput<R>(error, finalError);
 	}
 }
 

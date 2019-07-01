@@ -3,6 +3,8 @@ import { LocaleData } from 'react-intl';
 // ---------------------------------------------------------------------------- //
 // @begin: constants block
 
+export const DEFAULT_PAGE_SIZE = 25;
+
 export const TO_STRING = {}.toString;
 
 // @end: constants block
@@ -14,6 +16,7 @@ export enum JSTypeof {
 	FUNCTION = 'function',
 	OBJECT = 'object',
 	STRING = 'string',
+	NUMBER = 'number',
 }
 
 export enum RequestProtocol {
@@ -41,6 +44,11 @@ export enum RequestContentTypes {
 	FORM = '',
 }
 
+export enum APIResponseStatus {
+	SUCCESS = 'api:response::success',
+	ERROR = 'api:response::error',
+}
+
 // @end: enums block
 // ---------------------------------------------------------------------------- //
 // @begin: types block
@@ -64,10 +72,7 @@ export type TRender<T = any> = TRenderFunction<T> | React.ReactNode;
  */
 export type TRequestBody = string | FormData | undefined;
 
-/**
- * Possible default response types returned from the buildRequest function
- */
-export type TAPIResponse = IAPIResponse | IErrorAPIResponse | IImageAPIResponse;
+export type TAPIResponse = IStringAPIResponse | IAPIResponse;
 
 // @end: types block
 // ---------------------------------------------------------------------------- //
@@ -83,34 +88,34 @@ export interface ILocale {
 	messages: TObjectMap<string>;
 }
 
-/**
- * Define a way to access the response status code and its headers
- */
-export interface IAPIResponseMetadata {
-	readonly statusCode: number;
-	readonly headers: Headers;
-	readonly body: any;
+export interface IBaseModel<T = any> {
+	readonly __innerprops__: T;
+}
+
+export interface IBaseResponse<T = any> {
+	status: APIResponseStatus;
+	statusCode: number;
+	data: T;
+	/** defined when the API has "pagination" support */
+	totalCount?: number;
 }
 
 /**
  * Base response object returned from the buildRequest
  */
-export interface IAPIResponse {
-	readonly __metadata__: IAPIResponseMetadata;
+export interface IAPIResponse<T = any> {
+	readonly statusCode: number;
+	readonly headers: Headers;
+	readonly body: T;
 }
 
-/**
- * Base error response object returned from the buildRequest
- */
-export interface IErrorAPIResponse extends IAPIResponse {
-	error: any;
-}
+export interface IStringAPIResponse<T = string> extends IAPIResponse<T> {}
 
-/**
- * Base image response object returned from the buildRequest
- */
-export interface IImageAPIResponse extends IAPIResponse {
-	data: string;
+export interface IPaginationRequestParams {
+	offset?: number;
+	page?: number;
+	countPerPage: number;
+	previousTotalCount?: number;
 }
 
 /**

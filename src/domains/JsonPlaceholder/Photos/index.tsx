@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectPhotosList } from 'state/ducks/jsonplaceholderphotos/selectors';
-import { loadPhotos } from 'state/ducks/jsonplaceholderphotos/operations';
+import { selectPhotosList } from 'state/ducks/photos/selectors';
+import { loadPhotos } from 'state/ducks/photos/operations';
 
 import './_styles.scss';
 
