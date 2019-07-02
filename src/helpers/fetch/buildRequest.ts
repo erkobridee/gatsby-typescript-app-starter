@@ -21,7 +21,10 @@ import readImageBlobAsDataURL from './readImageBlobAsDataURL';
  *
  * @returns {R} output response object
  */
-function buildResponseOutput<R extends IAPIResponse = TAPIResponse>(response: Response, bodyObject: any = {}): R {
+function buildResponseOutput<R extends IAPIResponse = TAPIResponse>(
+	response: Response,
+	bodyObject: Pick<R, '__bodyType__'> = {}
+): R {
 	const { status, headers } = response;
 	return {
 		get statusCode() {

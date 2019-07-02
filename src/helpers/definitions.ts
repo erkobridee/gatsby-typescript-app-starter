@@ -107,6 +107,10 @@ export interface IAPIResponse<T = any> {
 	readonly statusCode: number;
 	readonly headers: Headers;
 	readonly body: T;
+
+	// defined to be able to use the Pick<IAPIResponse, '__bodyType__'>
+	// and read the generic type assigned to it
+	__bodyType__?: T;
 }
 
 export interface IStringAPIResponse<T = string> extends IAPIResponse<T> {}
