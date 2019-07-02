@@ -53,8 +53,6 @@ export enum APIResponseStatus {
 // ---------------------------------------------------------------------------- //
 // @begin: types block
 
-export type TObjectMap<V = any> = { [key: string]: V };
-
 export type TFunction = (...args: any[]) => any;
 
 export type TEmptyCallback = () => void;
@@ -78,6 +76,10 @@ export type TAPIResponse = IStringAPIResponse | IAPIResponse;
 // ---------------------------------------------------------------------------- //
 // @begin: interfaces block
 
+export interface Dictionary<T = any> {
+	[key: string]: T;
+}
+
 export interface IProjectWindow extends Window {
 	CSS?: any;
 }
@@ -85,7 +87,7 @@ export interface IProjectWindow extends Window {
 export interface ILocale {
 	locale: string;
 	localeData: LocaleData;
-	messages: TObjectMap<string>;
+	messages: Dictionary<string>;
 }
 
 export interface IBaseModel<T = any> {
@@ -134,8 +136,8 @@ export interface IRequestOptions {
 	host?: string;
 	api?: string;
 	urlPath: string;
-	variables?: TObjectMap;
-	parameters?: TObjectMap;
+	variables?: Dictionary;
+	parameters?: Dictionary;
 	noCache?: boolean;
 }
 
