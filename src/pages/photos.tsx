@@ -7,7 +7,7 @@ import SEO from 'components/SEO';
 import Photos from 'domains/Photos';
 
 const PhotosPage = () => (
-	<Layout>
+	<Layout displayFooter={false}>
 		<FormattedMessage id="photos.pagetitle" defaultMessage="Photos">
 			{text => <SEO title={text as string} />}
 		</FormattedMessage>
