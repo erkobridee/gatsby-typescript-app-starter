@@ -2,7 +2,7 @@ import * as path from 'path';
 import * as url from 'url';
 import * as qs from 'qs';
 import {
-	TObjectMap,
+	IDictionary,
 	RequestContentTypes,
 	RequestProtocol,
 	RequestMethod,
@@ -119,7 +119,7 @@ export async function buildRequest<R extends IAPIResponse = IAPIResponse>(option
 	/**
 	 * Prepare headers
 	 */
-	const headers: TObjectMap = {
+	const headers: IDictionary = {
 		Accept: contentType,
 		'Content-Type': contentType,
 	};

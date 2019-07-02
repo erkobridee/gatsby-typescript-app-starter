@@ -1,0 +1,4 @@
+.tiles {
+	display: grid;
+	grid-template-columns: repeat(var(--tiles-columns, 3), 1fr);
+}

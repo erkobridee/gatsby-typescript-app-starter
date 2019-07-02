@@ -5,6 +5,7 @@
 	"version": "0.1.0",
 	"author": "Erko Bridee <erko.bridee@gmail.com>",
 	"dependencies": {
+		"classnames": "^2.2.6",
 		"css-vars-ponyfill": "^2.0.2",
 		"qs": "^6.7.0",
 		"react": "^16.8.6",
@@ -18,6 +19,7 @@
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.4.4",
+		"@types/classnames": "^2.2.8",
 		"@types/node": "^12.0.8",
 		"@types/qs": "^6.5.3",
 		"@types/react": "^16.8.21",

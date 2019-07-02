@@ -1,0 +1,12 @@
+.photos {
+	&__hasmore {
+		display: flex;
+		justify-content: center;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	@media screen and (max-width: 960px) {
+		--tiles-columns: 2;
+	}
+}

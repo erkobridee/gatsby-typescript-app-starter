@@ -76,7 +76,7 @@ export type TAPIResponse = IStringAPIResponse | IAPIResponse;
 // ---------------------------------------------------------------------------- //
 // @begin: interfaces block
 
-export interface Dictionary<T = any> {
+export interface IDictionary<T = any> {
 	[key: string]: T;
 }
 
@@ -87,7 +87,7 @@ export interface IProjectWindow extends Window {
 export interface ILocale {
 	locale: string;
 	localeData: LocaleData;
-	messages: Dictionary<string>;
+	messages: IDictionary<string>;
 }
 
 export interface IBaseModel<T = any> {
@@ -136,8 +136,8 @@ export interface IRequestOptions {
 	host?: string;
 	api?: string;
 	urlPath: string;
-	variables?: Dictionary;
-	parameters?: Dictionary;
+	variables?: IDictionary;
+	parameters?: IDictionary;
 	noCache?: boolean;
 }
 
