@@ -1,4 +1,5 @@
 import { isUndefined, isNumber } from 'helpers/check';
+import { IPaginationRequestParams } from 'helpers/definitions';
 
 export interface IHasMoreDataOptions {
 	offset?: number;
@@ -30,4 +31,37 @@ export const hasMoreData = (options: IHasMoreDataOptions): boolean => {
 	return false;
 };
 
-export default hasMoreData;
+/**
+ * Process and update the pagination params attributes
+ *
+ * @param {T extends IPaginationRequestParams = IPaginationRequestParams} params
+ *
+ * @returns {T} processed params
+ */
+export const updatePaginationAttributes = <T extends IPaginationRequestParams = IPaginationRequestParams>(
+	params: T
+): T => {
+	const { countPerPage, previousTotalCount } = params;
+	let { offset, page } = params;
+
+	if (offset || page) {
+		return params;
+	}
+
+	if (isNumber(previousTotalCount)) {
+		if (isUndefined(offset) && isUndefined(page)) {
+			params.page = Math.floor(previousTotalCount / countPerPage);
+			return params;
+		}
+	}
+
+	return {
+		...params,
+		page: 0,
+	};
+};
+
+export default {
+	updatePaginationAttributes,
+	hasMoreData,
+};

@@ -13,7 +13,7 @@ const JsonPlaceholderPhotos: React.FunctionComponent = () => {
 	const photosListString = toJSON(photosList);
 
 	React.useEffect(() => {
-		dispatch(loadPhotos());
+		dispatch(loadPhotos({ countPerPage: 50, previousTotalCount: photosList.length }));
 	}, []);
 
 	return (

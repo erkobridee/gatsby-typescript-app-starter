@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 
-import hasMoreData from 'helpers/fetch/hasMoreData';
+import { updatePaginationAttributes, hasMoreData } from 'helpers/fetch/pagination';
 
 import * as API from 'data/api/photos';
 
@@ -8,12 +8,12 @@ import { photosLoaded } from './actions';
 import { IPhotosAction, IPhotosLoadParams } from './definitions';
 
 export const loadPhotos = (params?: IPhotosLoadParams) => async (dispatch: Dispatch<IPhotosAction>) => {
-	const { offset = 4990, countPerPage = 50 } = params || {};
+	const { offset, page, countPerPage } = updatePaginationAttributes(params || { countPerPage: 50 });
 	try {
-		const responseObject = await API.loadPhotos({ offset, countPerPage });
+		const responseObject = await API.loadPhotos({ offset, page, countPerPage });
 		const { data: list, totalCount = 0 } = responseObject;
 		const { length } = list;
-		const hasMore = hasMoreData({ offset, length, totalCount });
+		const hasMore = hasMoreData({ length, totalCount });
 		dispatch(photosLoaded({ list, hasMore }));
 	} catch (e) {
 		console.log(e);

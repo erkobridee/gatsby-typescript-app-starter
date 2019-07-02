@@ -7,7 +7,6 @@ export enum PhotosActionTypes {
 	RESET = 'photos/RESET',
 }
 
-// TODO: review
 export interface IPhotosState {
 	list: IPhotosModel[];
 	hasMore: boolean;
