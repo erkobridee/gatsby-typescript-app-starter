@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { selectPhotosList, selectHasMore } from 'state/ducks/photos/selectors';
+import { selectPhotosList, selectHasMore, selectIsFetching } from 'state/ducks/photos/selectors';
 import { loadPhotos } from 'state/ducks/photos/operations';
 import PhotoModel from 'data/models/Photos';
 
@@ -12,13 +12,16 @@ import PhotoCard from './PhotoCard';
 
 import './_styles.scss';
 
+const countPerPage = 18;
+
 const JsonPlaceholderPhotos: React.FunctionComponent = () => {
 	const dispatch = useDispatch();
 	const photosList = useSelector(selectPhotosList);
 	const hasMore = useSelector(selectHasMore);
+	const isFetching = useSelector(selectIsFetching);
 
 	React.useEffect(() => {
-		dispatch(loadPhotos({ countPerPage: 50, previousTotalCount: photosList.length }));
+		dispatch(loadPhotos({ countPerPage, previousTotalCount: photosList.length }));
 	}, []);
 
 	const buildTileElement = (item: PhotoModel, index: number) => (
@@ -27,15 +30,21 @@ const JsonPlaceholderPhotos: React.FunctionComponent = () => {
 		</Tile>
 	);
 
+	const onLoadMoreClick = () => {
+		dispatch(loadPhotos({ countPerPage, previousTotalCount: photosList.length }));
+	};
+
 	return (
 		<div className="photos">
 			<Tiles gutter="15px">{photosList.map(buildTileElement)}</Tiles>
 
-			{hasMore && (
+			{!isFetching && hasMore && (
 				<div className="photos__hasmore">
-					<button>load more</button>
+					<button onClick={onLoadMoreClick}>load more</button>
 				</div>
 			)}
+
+			{isFetching && <div className="photos__hasmore">Loading...</div>}
 		</div>
 	);
 };
