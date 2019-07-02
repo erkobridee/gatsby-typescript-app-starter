@@ -4,15 +4,15 @@ import { FormattedMessage } from 'react-intl';
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
 
-import JsonPlaceholderPhotos from 'domains/Photos';
+import Photos from 'domains/Photos';
 
-const Photos = () => (
+const PhotosPage = () => (
 	<Layout>
 		<FormattedMessage id="photos.pagetitle" defaultMessage="Photos">
 			{text => <SEO title={text as string} />}
 		</FormattedMessage>
-		<JsonPlaceholderPhotos />
+		<Photos />
 	</Layout>
 );
 
-export default Photos;
+export default PhotosPage;

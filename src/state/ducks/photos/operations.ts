@@ -4,7 +4,7 @@ import { updatePaginationAttributes, hasMoreData } from 'helpers/fetch/paginatio
 
 import * as API from 'data/api/photos';
 
-import { photosFetching, photosFetchError, photosLoaded } from './actions';
+import { photosFetching, photosFetchError, photosLoaded, photosReset } from './actions';
 import { IPhotosAction, IPhotosLoadParams } from './definitions';
 
 export const loadPhotos = (params?: IPhotosLoadParams) => async (dispatch: Dispatch<IPhotosAction>) => {
@@ -21,3 +21,5 @@ export const loadPhotos = (params?: IPhotosLoadParams) => async (dispatch: Dispa
 		console.log(e);
 	}
 };
+
+export const resetPhotos = photosReset;
