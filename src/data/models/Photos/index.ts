@@ -29,7 +29,7 @@ export default class PhotoModel implements IPhotoModel {
 	}
 
 	get url() {
-		return `http://lorempixel.com/600/400/?_=${this.props.id}r${Math.random()}`;
+		return `http://lorempixel.com/600/400/?_=${this.props.id}}`;
 	}
 
 	toJSON() {

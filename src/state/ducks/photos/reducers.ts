@@ -1,5 +1,6 @@
 import createReducer from 'state/helpers/createReducer';
 import { IReducerMap } from 'state/helpers/definitions';
+import { arrayMerge } from 'helpers/arrays';
 import { PhotosActionTypes as Types, IPhotosAction, IPhotosState } from './definitions';
 
 const initialState: IPhotosState = {
@@ -12,7 +13,7 @@ const reducerMap: IReducerMap<IPhotosState, IPhotosAction> = {
 	[Types.LOADED]: ({ list: previousList }, action) => {
 		const { payload: { list, hasMore, isFetching } = initialState } = action;
 		return {
-			list: [...previousList, ...list],
+			list: arrayMerge(previousList, list, 'id'),
 			hasMore,
 			isFetching,
 		};

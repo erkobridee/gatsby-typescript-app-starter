@@ -53,6 +53,12 @@ export enum APIResponseStatus {
 // ---------------------------------------------------------------------------- //
 // @begin: types block
 
+export type TJSObject = { [key: string]: any };
+
+export type TJSValue = TJSObject | any;
+
+export type TArrayFilter<T> = (x: T) => boolean;
+
 export type TFunction = (...args: any[]) => any;
 
 export type TEmptyCallback = () => void;
