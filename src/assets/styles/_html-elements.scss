@@ -129,11 +129,6 @@ template {
 a {
 	background-color: transparent;
 	text-decoration-skip: objects;
-
-	&:active,
-	&:hover {
-		outline-width: 0;
-	}
 }
 
 abbr[title] {
