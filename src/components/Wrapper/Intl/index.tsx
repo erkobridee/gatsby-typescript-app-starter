@@ -11,7 +11,7 @@ export const IntlWrapper: React.FunctionComponent = ({ children }) => {
 
 	React.useEffect(() => {
 		if (!language.messages) {
-			dispatch(changeLanguage());
+			dispatch(changeLanguage(locale));
 		}
 	}, []);
 
