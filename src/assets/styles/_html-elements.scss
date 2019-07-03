@@ -23,7 +23,7 @@ html {
 body {
 	color: #{color(color-black, 0.8)};
 	margin: 0;
-	font-weight: normal;
+	font-weight: var(--font-weight-normal);
 	word-wrap: break-word;
 	font-kerning: normal;
 	font-feature-settings: 'kern', 'liga', 'clig', 'calt';
@@ -140,12 +140,6 @@ abbr[title] {
 	text-decoration: underline dotted;
 }
 
-b,
-strong {
-	font-weight: inherit;
-	font-weight: bolder;
-}
-
 dfn {
 	font-style: italic;
 }
@@ -210,10 +204,6 @@ textarea {
 	margin: 0;
 }
 
-optgroup {
-	font-weight: 700;
-}
-
 button,
 input {
 	overflow: visible;
@@ -243,6 +233,20 @@ legend {
 
 textarea {
 	overflow: auto;
+}
+
+b,
+strong,
+dt,
+th,
+optgroup,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--font-weight-bold);
 }
 
 img,
@@ -284,7 +288,6 @@ h5,
 h6 {
 	color: inherit;
 	font-family: var(--font-family);
-	font-weight: bold;
 	text-rendering: optimizeLegibility;
 	line-height: 1.1;
 }
@@ -363,13 +366,6 @@ address {
 	padding-right: 0;
 	padding-top: 0;
 	margin-bottom: 1.45rem;
-}
-
-b,
-strong,
-dt,
-th {
-	font-weight: bold;
 }
 
 li {
