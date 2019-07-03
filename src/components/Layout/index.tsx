@@ -12,8 +12,6 @@ import { FormattedMessage } from 'react-intl';
 import LanguageSelector from 'components/LanguageSelector';
 import Header from './Header';
 
-import './_styles.scss';
-
 interface ILayout {
 	children: React.ReactNode;
 	displayFooter?: boolean;

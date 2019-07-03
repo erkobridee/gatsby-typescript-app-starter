@@ -1,0 +1,71 @@
+/*
+	Function to convert
+ */
+@function color($color-name, $alpha: null) {
+	@if ($alpha != null) {
+		@return #{'rgba('}var(--#{$color-name}), $alpha#{')'};
+	}
+	@return #{'rgb('}var(--#{$color-name}) #{')'};
+}
+
+/*
+	Mixin to convert sass vars to css variables
+ */
+@mixin convertToCssColors($colors) {
+	@each $name, $color in $colors {
+		--#{$name}: #{red($color)}, #{green($color)}, #{blue($color)};
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+/*
+    Mixin to set aspect ratio.
+
+    1, 1 - square
+    16, 9 - rectangle
+
+	Eg: To set an aspect ratio of 16:9 include the mixin like;
+	@include aspect-ratio(16, 9);
+ */
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: '';
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+}
+
+//----------------------------------------------------------------------------//
+
+// https://css-tricks.com/snippets/css/fluid-typography/
+
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
+	$u1: unit($min-vw);
+	$u2: unit($max-vw);
+	$u3: unit($min-font-size);
+	$u4: unit($max-font-size);
+
+	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+		& {
+			font-size: $min-font-size;
+			@media screen and (min-width: $min-vw) {
+				font-size: calc(
+					#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
+						((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
+				);
+			}
+			@media screen and (min-width: $max-vw) {
+				font-size: $max-font-size;
+			}
+		}
+	}
+}
+
+//----------------------------------------------------------------------------//
