@@ -9,7 +9,11 @@
 const consoleError = console.error.bind(console);
 // eslint-disable-next-line
 console.error = (message: any, ...args: any[]) => {
-	if (typeof message === 'string' && message.startsWith('[React Intl] Missing message:')) {
+	if (
+		typeof message === 'string' &&
+		(message.startsWith('[React Intl] Missing message:') ||
+			message.startsWith('[React Intl] Missing locale data for locale:'))
+	) {
 		return;
 	}
 	consoleError(message, ...args);
