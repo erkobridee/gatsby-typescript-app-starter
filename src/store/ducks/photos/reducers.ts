@@ -1,5 +1,5 @@
-import createReducer from 'state/helpers/createReducer';
-import { IReducerMap } from 'state/helpers/definitions';
+import createReducer from 'store/helpers/createReducer';
+import { IReducerMap } from 'store/helpers/definitions';
 import { arrayMerge } from 'helpers/arrays';
 import { PhotosActionTypes as Types, IPhotosAction, IPhotosState } from './definitions';
 

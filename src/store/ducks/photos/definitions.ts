@@ -1,4 +1,4 @@
-import { IAction } from 'state/helpers/definitions';
+import { IAction } from 'store/helpers/definitions';
 import IPhotosModel from 'data/models/Photos';
 import { IPhotosParams } from 'data/api/photos/definitions';
 

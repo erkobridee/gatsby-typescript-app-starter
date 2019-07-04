@@ -1,6 +1,6 @@
 import { browserLocale } from 'helpers/language';
-import createReducer from 'state/helpers/createReducer';
-import { IReducerMap } from 'state/helpers/definitions';
+import createReducer from 'store/helpers/createReducer';
+import { IReducerMap } from 'store/helpers/definitions';
 import { LanguageActionTypes as Types, ILanguageAction, ILanguageState } from './definitions';
 
 const initialState: ILanguageState = {

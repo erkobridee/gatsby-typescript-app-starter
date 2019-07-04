@@ -1,4 +1,4 @@
-import { IAction } from 'src/state/helpers/definitions';
+import { IAction } from 'store/helpers/definitions';
 
 export enum LanguageActionTypes {
 	UPDATE = 'language/UPDATE',

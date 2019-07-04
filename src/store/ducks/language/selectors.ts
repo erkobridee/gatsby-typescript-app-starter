@@ -1,4 +1,4 @@
-import { IRootState } from 'state/definitions';
+import { IRootState } from 'store/definitions';
 
 export const selectLanguage = (state: IRootState) => state.language;
 
