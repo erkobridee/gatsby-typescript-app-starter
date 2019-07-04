@@ -129,7 +129,9 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
     -   added a temporary solution described on the issue comments
 
--   the project has the redux on it and its follow the re-ducks pattern, read more about on this links [Scaling your Redux App with ducks](https://www.freecodecamp.org/news/scaling-your-redux-app-with-ducks-6115955638be/) and check this [example](FortechRomania/react-redux-complete-example)
+-   the project has the redux on it and its follow the re-ducks pattern, read more about on this links [Scaling your Redux App with ducks](https://www.freecodecamp.org/news/scaling-your-redux-app-with-ducks-6115955638be/) and check this [example](https://github.com/FortechRomania/react-redux-complete-example)
+
+    -   but, instead of `src/state/` it uses `src/store/` and instead of `src/state/ducks/` it uses `src/store/state/`
 
 -   Gatsby
 

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormattedMessage, defineMessages, injectIntl, InjectedIntlProps } from 'react-intl';
-import { changeLanguage } from 'store/ducks/language/operations';
-import { selectLocale } from 'store/ducks/language/selectors';
+import { changeLanguage } from 'store/state/language/operations';
+import { selectLocale } from 'store/state/language/selectors';
 
 const translations = defineMessages({
 	en: { id: 'language.selector.option.english', defaultMessage: 'English' },

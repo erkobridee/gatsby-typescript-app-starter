@@ -1,5 +1,5 @@
-import { ILanguageState } from './ducks/language/definitions';
-import { IPhotosState } from './ducks/photos/definitions';
+import { ILanguageState } from './state/language/definitions';
+import { IPhotosState } from './state/photos/definitions';
 
 export interface IRootState {
 	language: ILanguageState;

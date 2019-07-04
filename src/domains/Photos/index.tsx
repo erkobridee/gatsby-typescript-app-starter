@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
-import { selectPhotosList, selectHasMore, selectIsFetching } from 'store/ducks/photos/selectors';
-import { loadPhotos, resetPhotos } from 'store/ducks/photos/operations';
+import { selectPhotosList, selectHasMore, selectIsFetching } from 'store/state/photos/selectors';
+import { loadPhotos, resetPhotos } from 'store/state/photos/operations';
 import PhotoModel from 'data/models/Photos';
 
 import Tiles from 'components/ui/Tiles';

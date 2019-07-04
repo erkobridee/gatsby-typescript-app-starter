@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { IntlProvider } from 'react-intl';
-import { selectLanguage } from 'store/ducks/language/selectors';
-import { changeLanguage } from 'store/ducks/language/operations';
+import { selectLanguage } from 'store/state/language/selectors';
+import { changeLanguage } from 'store/state/language/operations';
 
 export const IntlWrapper: React.FunctionComponent = ({ children }) => {
 	const dispatch = useDispatch();
