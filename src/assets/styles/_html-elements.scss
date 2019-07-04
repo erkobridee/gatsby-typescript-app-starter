@@ -1,24 +1,16 @@
 @import './mixins';
 @import './vars';
+@import './reset';
 
 //----------------------------------------------------------------------------//
 
-* {
-	&,
-	&:before,
-	&:after {
-		box-sizing: inherit;
-	}
-
-	outline: none;
-}
-
 html {
-	@include fluid-type($min_width, $max_width, $min_font, $max_font);
+	// https://websemantics.uk/articles/font-size-conversion/
 	font-size: 62.5%; // 10px
+	@include fluid-type($min_width, $max_width, $min_font, $max_font);
+
 	font-family: var(--font-family);
 	text-size-adjust: 100%;
-	box-sizing: border-box;
 	overflow-y: scroll;
 }
 
@@ -32,63 +24,6 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-
-//----------------------------------------------------------------------------//
-
-[type='reset'],
-[type='submit'],
-button,
-html [type='button'] {
-	-webkit-appearance: button;
-}
-
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner,
-button::-moz-focus-inner {
-	border-style: none;
-	padding: 0;
-}
-
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring,
-button:-moz-focusring {
-	outline: 1px dotted ButtonText;
-}
-
-[type='checkbox'],
-[type='radio'] {
-	box-sizing: border-box;
-	padding: 0;
-}
-
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
-	height: auto;
-}
-
-[type='search'] {
-	-webkit-appearance: textfield;
-	outline-offset: -2px;
-}
-
-[type='search']::-webkit-search-cancel-button,
-[type='search']::-webkit-search-decoration {
-	-webkit-appearance: none;
-}
-
-::-webkit-input-placeholder {
-	color: inherit;
-	opacity: 0.54;
-}
-
-::-webkit-file-upload-button {
-	-webkit-appearance: button;
-	font: inherit;
-}
-
-//----------------------------------------------------------------------------//
 
 article,
 aside,
@@ -267,13 +202,6 @@ form,
 noscript,
 iframe,
 hr {
-	margin-left: 0;
-	margin-right: 0;
-	margin-top: 0;
-	padding-bottom: 0;
-	padding-left: 0;
-	padding-right: 0;
-	padding-top: 0;
 	margin-bottom: 1.45rem;
 }
 
@@ -321,9 +249,6 @@ ol {
 }
 
 pre {
-	margin-left: 0;
-	margin-right: 0;
-	margin-top: 0;
 	margin-bottom: 1.45rem;
 	font-size: 0.85rem;
 	line-height: 1.42;
@@ -355,13 +280,6 @@ hr {
 }
 
 address {
-	margin-left: 0;
-	margin-right: 0;
-	margin-top: 0;
-	padding-bottom: 0;
-	padding-left: 0;
-	padding-right: 0;
-	padding-top: 0;
 	margin-bottom: 1.45rem;
 }
 
