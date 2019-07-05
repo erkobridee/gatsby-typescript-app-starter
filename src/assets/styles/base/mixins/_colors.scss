@@ -1,0 +1,18 @@
+/*
+	Function to convert
+ */
+@function color($color-name, $alpha: null) {
+	@if ($alpha != null) {
+		@return #{'rgba('}var(--#{$color-name}), $alpha#{')'};
+	}
+	@return #{'rgb('}var(--#{$color-name}) #{')'};
+}
+
+/*
+	Mixin to convert sass vars to css variables
+ */
+@mixin convertToCssColors($colors) {
+	@each $name, $color in $colors {
+		--#{$name}: #{red($color)}, #{green($color)}, #{blue($color)};
+	}
+}

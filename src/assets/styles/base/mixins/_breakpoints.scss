@@ -1,0 +1,19 @@
+$breakpoints: (
+	xs: 512px,
+	sm: 768px,
+	md: 1024px,
+	lg: 1280px,
+	xl: 1440px,
+);
+
+@mixin breakpoint($breakpoint, $logic: false) {
+	@if ($logic) {
+		@media #{$logic} and (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@media (min-width: map-get($map: $breakpoints, $key: $breakpoint)) {
+			@content;
+		}
+	}
+}

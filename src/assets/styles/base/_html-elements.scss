@@ -1,22 +1,14 @@
-@import './mixins';
-@import './vars';
-@import './reset';
-
-//----------------------------------------------------------------------------//
-
 html {
-	// https://websemantics.uk/articles/font-size-conversion/
-	font-size: 62.5%; // 10px
 	@include fluid-type($min_width, $max_width, $min_font, $max_font);
-
+	font-size: var(--text-base-size);
 	font-family: var(--font-family);
 	text-size-adjust: 100%;
 	overflow-y: scroll;
 }
 
 body {
-	color: #{color(color-black, 0.8)};
-	margin: 0;
+	background-color: var(--body-bg, #{color(color-white)});
+	color: var(--body-text-color, #{color(color-black)});
 	font-weight: var(--font-weight-normal);
 	word-wrap: break-word;
 	font-kerning: normal;
@@ -105,7 +97,7 @@ kbd,
 pre,
 samp {
 	font-family: monospace, monospace;
-	font-size: 1em;
+	font-size: var(--text-sm);
 }
 
 figure {
@@ -194,6 +186,7 @@ ol,
 dl,
 dd,
 p,
+pre,
 figure,
 table,
 fieldset,
@@ -202,7 +195,7 @@ form,
 noscript,
 iframe,
 hr {
-	margin-bottom: 1.45rem;
+	margin-bottom: var(--space-md);
 }
 
 h1,
@@ -214,77 +207,76 @@ h6 {
 	color: inherit;
 	font-family: var(--font-family);
 	text-rendering: optimizeLegibility;
-	line-height: 1.1;
+	line-height: var(--heading-line-height);
 }
 
 h1 {
-	font-size: 2.25rem;
+	font-size: var(--text-xxl);
 }
 
 h2 {
-	font-size: 1.62671rem;
+	font-size: var(--text-xl);
 }
 
 h3 {
-	font-size: 1.38316rem;
+	font-size: var(--text-lg);
 }
 
 h4 {
-	font-size: 1rem;
+	font-size: var(--text-md);
 }
 
 h5 {
-	font-size: 0.85028rem;
+	font-size: var(--text-sm);
 }
 
 h6 {
-	font-size: 0.78405rem;
+	font-size: var(--text-xs);
 }
 
 ul,
 ol {
-	margin-left: 1.45rem;
+	margin-left: var(--space-md);
 	list-style-position: outside;
 	list-style-image: none;
 }
 
 pre {
-	margin-bottom: 1.45rem;
 	font-size: 0.85rem;
 	line-height: 1.42;
 	background: #{color(color-black, 0.04)};
 	border-radius: 3px;
 	overflow: auto;
 	word-wrap: normal;
-	padding: 1.45rem;
+	padding: var(--space-md);
 }
 
 table {
-	font-size: 1rem;
-	line-height: 1.45rem;
+	font-size: var(--text-base-size);
+	line-height: 1.45;
 	border-collapse: collapse;
 	width: 100%;
 }
 
 blockquote {
-	margin-left: 1.45rem;
-	margin-right: 1.45rem;
-	margin-bottom: 1.45rem;
+	margin-left: var(--space-md);
+	margin-right: var(--space-md);
+	margin-bottom: var(--space-md);
 }
 
 hr {
-	margin-bottom: calc(1.45rem - 1px);
+	margin-bottom: calc(var(--space-md) - 1px);
 	background: #{color(color-black, 0.2)};
 	border: none;
 	height: 1px;
 }
 
 address {
-	margin-bottom: 1.45rem;
+	margin-bottom: var(--space-md);
 }
 
 li {
-	margin-bottom: calc(1.45rem / 2);
+	margin-bottom: calc(var(--space-md) / 2);
 }
 
 ol li,
@@ -294,9 +286,9 @@ ul li {
 
 li > ol,
 li > ul {
-	margin-left: 1.45rem;
-	margin-bottom: calc(1.45rem / 2);
-	margin-top: calc(1.45rem / 2);
+	margin-left: var(--space-md);
+	margin-bottom: calc(var(--space-md) / 2);
+	margin-top: calc(var(--space-md) / 2);
 }
 
 blockquote *:last-child,
@@ -306,14 +298,14 @@ p *:last-child {
 }
 
 li > p {
-	margin-bottom: calc(1.45rem / 2);
+	margin-bottom: calc(var(--space-md) / 2);
 }
 
 code,
 kbd,
 samp {
-	font-size: 0.85rem;
-	line-height: 1.45rem;
+	font-size: var(--text-sm);
+	line-height: 1.45;
 }
 
 abbr,
@@ -333,13 +325,15 @@ thead {
 
 td,
 th {
+	--padding-x: calc(var(--space-md) * 1.246);
+	--padding-y: calc(var(--space-md) * 0.93);
 	text-align: left;
 	border-bottom: 1px solid #{color(color-black, 0.12)};
 	font-feature-settings: 'tnum';
-	padding-left: 0.96667rem;
-	padding-right: 0.96667rem;
-	padding-top: 0.725rem;
-	padding-bottom: calc(0.725rem - 1px);
+	padding-left: var(--padding-x);
+	padding-right: var(--padding-x);
+	padding-top: var(--padding-y);
+	padding-bottom: calc(var(--padding-y) - 1px);
 }
 
 th:first-child,
@@ -380,5 +374,3 @@ pre tt:before,
 pre tt:after {
 	content: '';
 }
-
-//----------------------------------------------------------------------------//

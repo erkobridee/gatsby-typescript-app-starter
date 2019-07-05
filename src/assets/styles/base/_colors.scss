@@ -10,3 +10,7 @@ $colors: (
 	color-cyan: #00ffff,
 	color-blue: #0000ff,
 );
+
+:root {
+	@include convertToCssColors($colors);
+}

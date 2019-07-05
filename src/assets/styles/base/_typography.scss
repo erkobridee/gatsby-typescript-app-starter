@@ -1,0 +1,26 @@
+/* typography */
+$min_width: 600px;
+$max_width: 1400px;
+$min_font: 15px;
+$max_font: 17px;
+
+:root {
+	--text-base-size: var(--base-unit);
+	--text-xxl: 2.25rem;
+	--text-xl: 1.62671rem;
+	--text-lg: 1.38316rem;
+	--text-md: 1rem;
+	--text-sm: 0.85028rem;
+	--text-xs: 0.78405rem;
+
+	--heading-line-height: 1.2;
+
+	--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+	--font-family-code: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier,
+		monospace;
+
+	--font-weight-normal: 400;
+	--font-weight-bold: 700;
+}

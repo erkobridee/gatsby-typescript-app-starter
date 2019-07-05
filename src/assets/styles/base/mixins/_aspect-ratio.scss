@@ -1,0 +1,18 @@
+/*
+    Mixin to set aspect ratio.
+
+    1, 1 - square
+    16, 9 - rectangle
+
+	Eg: To set an aspect ratio of 16:9 include the mixin like;
+	@include aspect-ratio(16, 9);
+ */
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+	&:before {
+		display: block;
+		content: '';
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+}
