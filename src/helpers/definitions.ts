@@ -53,7 +53,7 @@ export enum APIResponseStatus {
 // ---------------------------------------------------------------------------- //
 // @begin: types block
 
-export type TJSObject = { [key: string]: any };
+export type TJSObject = Record<string, any>;
 
 export type TJSValue = TJSObject | any;
 
