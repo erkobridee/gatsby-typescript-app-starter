@@ -3,6 +3,8 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
+import 'assets/styles/global.scss';
+
 import 'whatwg-fetch';
 
 import './src/helpers/console';

@@ -1,1 +1,10 @@
-// .photo {}
+.photo {
+	max-width: 600px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+
+	&__link {
+		margin-top: var(--space-lg);
+	}
+}

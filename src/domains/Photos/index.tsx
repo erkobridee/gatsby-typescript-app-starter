@@ -7,7 +7,7 @@ import PhotoView from './View';
 export interface IPhotos extends RouteComponentProps {}
 
 const Photos: React.FunctionComponent<IPhotos> = () => (
-	<Router basepath="/photos">
+	<Router basepath="photos">
 		<PhotosList path="/" />
 		<PhotoView path=":id" />
 	</Router>
