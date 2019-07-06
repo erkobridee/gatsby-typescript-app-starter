@@ -140,3 +140,5 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
     -   the project has the configuration to be able to use absolute imports on the code ( [Gatsby Docs - Absolute imports](https://www.gatsbyjs.org/docs/add-custom-webpack-config/#absolute-imports) )
 
     -   [Gatsby Docs - How to use a custom `.babelrc` file](https://www.gatsbyjs.org/docs/babel/#how-to-use-a-custom-babelrc-file)
+
+    -   [Building Apps with Gatsby](https://www.gatsbyjs.org/docs/building-apps-with-gatsby/)
