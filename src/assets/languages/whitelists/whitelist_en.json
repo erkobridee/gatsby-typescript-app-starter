@@ -4,6 +4,7 @@
   "language.selector.option.portuguese",
   "language.selector.label",
   "layout.build-with",
+  "photos.pagetitle",
   "photos.loadmore",
   "photos.loading",
   "404.title",
@@ -16,6 +17,5 @@
   "home.link-photos",
   "page2.title",
   "page2.welcome",
-  "page2.link",
-  "photos.pagetitle"
+  "page2.link"
 ]
