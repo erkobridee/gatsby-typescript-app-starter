@@ -141,14 +141,7 @@ select {
 .form-control,
 .link,
 .reset {
-	// reset style of buttons + form controls
-	background-color: transparent;
-	padding: 0;
-	border: 0;
-	border-radius: 0;
-	color: inherit;
-	line-height: inherit;
-	appearance: none;
+	@include reset;
 }
 
 select.form-control::-ms-expand {

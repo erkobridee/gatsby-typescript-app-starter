@@ -4,17 +4,17 @@ html {
 	font-family: var(--font-family);
 	text-size-adjust: 100%;
 	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 }
 
 body {
+	@include fontSmooth;
 	background-color: var(--body-bg, #{color(color-white)});
 	color: var(--body-text-color, #{color(color-black)});
 	font-weight: var(--font-weight-normal);
 	word-wrap: break-word;
 	font-kerning: normal;
 	font-feature-settings: 'kern', 'liga', 'clig', 'calt';
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
 }
 
 article,

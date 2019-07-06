@@ -1,3 +1,11 @@
+// edit font rendering -> tip: use for light text on dark backgrounds
+@mixin fontSmooth {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+//----------------------------------------------------------------------------//
+
 // https://css-tricks.com/snippets/css/fluid-typography/
 
 @function strip-unit($value) {
