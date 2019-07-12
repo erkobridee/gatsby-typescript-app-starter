@@ -11,7 +11,7 @@ module.exports = function(api) {
 				[
 					'react-intl',
 					{
-						messagesDir: '.i18nExtractedMessages/',
+						messagesDir: '.build/i18nExtractedMessages/',
 					},
 				],
 			],

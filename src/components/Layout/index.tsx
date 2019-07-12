@@ -9,7 +9,9 @@ import * as React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
+import FontIcon from 'components/ui/FontIcon';
 import LanguageSelector from 'components/LanguageSelector';
+
 import Header from './Header';
 
 interface ILayout {
@@ -41,14 +43,16 @@ const Layout: React.FunctionComponent<ILayout> = ({ children, displayFooter = tr
 			>
 				<main>{children}</main>
 				{displayFooter && (
-					<footer>
+					<footer style={{ paddingTop: '2rem' }}>
+						<LanguageSelector />
 						<p>
 							© {new Date().getFullYear()},{' '}
 							<FormattedMessage id="layout.build-with" defaultMessage="Built with" />
 							{` `}
-							<a href="https://www.gatsbyjs.org">Gatsby</a>
+							<a href="https://www.gatsbyjs.org">
+								Gatsby <FontIcon name="heart" />
+							</a>
 						</p>
-						<LanguageSelector />
 					</footer>
 				)}
 			</div>

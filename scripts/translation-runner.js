@@ -5,7 +5,7 @@ const {
 	getDefaultMessages,
 } = require('react-intl-translations-manager');
 
-const messagesDirectory = '.i18nExtractedMessages';
+const messagesDirectory = '.build/i18nExtractedMessages';
 const defaultLanguage = 'en';
 
 const readFile = filename => {
