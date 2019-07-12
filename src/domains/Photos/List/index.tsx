@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { RouteComponentProps, navigate } from '@reach/router';
 
 import { selectPhotosList, selectHasMore, selectIsFetching } from 'store/state/photos/selectors';
-import { loadPhotos /*, resetPhotos */ } from 'store/state/photos/operations';
+import { loadPhotos } from 'store/state/photos/operations';
 import PhotoModel from 'data/models/Photos';
 
 import SEO from 'components/SEO';
@@ -27,9 +27,6 @@ const PhotosList: React.FunctionComponent<IPhotosList> = () => {
 
 	React.useEffect(() => {
 		dispatch(loadPhotos({ page: 0, countPerPage, previousTotalCount: photosList.length }));
-		// return () => {
-		// 	dispatch(resetPhotos());
-		// };
 	}, []);
 
 	const navigateToPhoto = (id: number) => () => navigate(`/photos/${id}`);
@@ -51,7 +48,7 @@ const PhotosList: React.FunctionComponent<IPhotosList> = () => {
 			</FormattedMessage>
 
 			<div className="photos">
-				<Tiles gutter="15px">{photosList.map(buildTileElement)}</Tiles>
+				<Tiles className="photos__tiles">{photosList.map(buildTileElement)}</Tiles>
 
 				{!isFetching && hasMore && (
 					<div className="photos__hasmore">
