@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import ImageCard from 'components/ui/ImageCard';
 import PhotoModel from 'data/models/Photos';
 
 import './_styles.scss';
@@ -10,7 +11,7 @@ export interface IPhotoCard {
 
 const PhotoCard: React.FunctionComponent<IPhotoCard> = ({ data: { url, title } }) => (
 	<div className="photocard">
-		<img src={url} />
+		<ImageCard url={url} />
 		<div className="photocard__title">{title}</div>
 	</div>
 );
