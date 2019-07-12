@@ -1,0 +1,14 @@
+a,
+.link {
+	transition: var(--default-transition, none);
+	color: var(--link, inherit);
+	text-decoration: none;
+
+	&:hover {
+		color: var(--link-hover, inherit);
+	}
+
+	&:active {
+		color: var(--link-active, inherit);
+	}
+}
