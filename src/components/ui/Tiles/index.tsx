@@ -1,6 +1,8 @@
 import * as React from 'react';
 import cn from 'classnames';
 
+export { default as Tile } from './Tile';
+
 import './_styles.scss';
 
 export interface ITilesProps {
@@ -9,7 +11,7 @@ export interface ITilesProps {
 	children: React.ReactNode;
 }
 
-const Tiles: React.FunctionComponent<ITilesProps> = ({ gutter, className, children }) => {
+export const Tiles: React.FunctionComponent<ITilesProps> = ({ gutter, className, children }) => {
 	const tilesRef = React.useRef<HTMLDivElement>(null);
 
 	React.useEffect(() => {

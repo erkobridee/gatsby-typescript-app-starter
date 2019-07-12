@@ -8,8 +8,7 @@ import { loadPhotos } from 'store/state/photos/operations';
 import PhotoModel from 'data/models/Photos';
 
 import SEO from 'components/SEO';
-import Tiles from 'components/ui/Tiles';
-import Tile from 'components/ui/Tile';
+import { Tiles, Tile } from 'components/ui/Tiles';
 
 import PhotoCard from 'domains/Photos/Card';
 
