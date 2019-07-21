@@ -1,0 +1,25 @@
+.layoutfooter {
+	background-color: var(--footer-bg);
+	color: var(--footer-color);
+
+	a,
+	.link {
+		--link: var(--link-inverted);
+		--link-hover: var(--link-inverted-hover);
+		--link-active: var(--link-inverted-active);
+	}
+	&,
+	&__content {
+		display: flex;
+		flex-direction: row;
+		width: 100%;
+	}
+
+	justify-content: center;
+
+	&__content {
+		padding: var(--space-md);
+		justify-content: space-between;
+		max-width: var(--max-app-width);
+	}
+}

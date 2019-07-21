@@ -4,6 +4,11 @@ $max_width: 1400px;
 $min_font: 15px;
 $max_font: 17px;
 
+$text_opacity_active: 1;
+$text_opacity_inactive: 0.6;
+$text_opacity_disable: 0.38;
+$text_opacity_error: 1;
+
 :root {
 	@include fluid-type($min_width, $max_width, $min_font, $max_font);
 
@@ -13,6 +18,11 @@ $max_font: 17px;
 	--text-md: 1rem;
 	--text-sm: 0.85028rem;
 	--text-xs: 0.78405rem;
+
+	--text-opacity-active: #{$text_opacity_active};
+	--text-opacity-inactive: #{$text-opacity-inactive};
+	--text-opacity-disable: #{$text-opacity-disable};
+	--text-opacity-error: #{$text-opacity-error};
 
 	--heading-line-height: 1.2;
 

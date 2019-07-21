@@ -1,0 +1,18 @@
+:root {
+	--link: rgba(var(--color-primary), var(--text-opacity-active));
+	--link-hover: rgba(var(--color-primary), var(--text-opacity-inactive));
+	--link-active: rgba(var(--color-primary), var(--text-opacity-active));
+
+	--link-inverted: rgba(var(--color-on-primary), var(--text-opacity-inactive));
+	--link-inverted-hover: rgba(var(--color-on-primary), var(--text-opacity-active));
+	--link-inverted-active: rgba(var(--color-on-primary), var(--text-opacity-active));
+
+	--body-bg: rgb(var(--color-background));
+	--body-color: rgb(var(--color-on-background));
+
+	--header-bg: rgb(var(--color-primary));
+	--header-color: rgb(var(--color-on-primary));
+
+	--footer-bg: rgb(var(--color-primary));
+	--footer-color: rgb(var(--color-on-primary));
+}

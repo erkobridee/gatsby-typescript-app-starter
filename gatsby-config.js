@@ -23,8 +23,8 @@ module.exports = {
 				name: `gatsby-typescript-starter`,
 				short_name: `ts-starter`,
 				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				background_color: `#ffffff`,
+				theme_color: `#6d2f9c`,
 				display: `minimal-ui`,
 				icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
 			},

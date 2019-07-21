@@ -9,7 +9,7 @@ html {
 body {
 	@include fontSmooth;
 	background-color: var(--body-bg, #{color(color-white)});
-	color: var(--body-text-color, #{color(color-black)});
+	color: var(--body-color, #{color(color-black)});
 	font-weight: var(--font-weight-normal);
 	font-size: var(--text-md);
 	word-wrap: break-word;

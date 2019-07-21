@@ -16,3 +16,12 @@
 		--#{$name}: #{red($color)}, #{green($color)}, #{blue($color)};
 	}
 }
+
+/*
+	Mixin to convert sass vars to css variables with the colors
+ */
+@mixin convertToCssColorsValues($colors) {
+	@each $name, $color in $colors {
+		--#{$name}: #{$color};
+	}
+}

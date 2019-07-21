@@ -1,41 +1,22 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 
+import './_styles.scss';
+
 interface IHeader {
 	siteTitle: string;
 }
 
-const Header: React.FunctionComponent<IHeader> = ({ siteTitle }) => (
-	<header
-		style={{
-			background: `rebeccapurple`,
-			marginBottom: `1.45rem`,
-		}}
-	>
-		<div
-			style={{
-				margin: `0 auto`,
-				maxWidth: 960,
-				padding: `1.45rem 1.0875rem`,
-			}}
-		>
+const Header: React.FunctionComponent<IHeader> = ({ siteTitle = '' }) => (
+	<div className="layoutheader">
+		<div className="layoutheader__content">
 			<h1 style={{ margin: 0 }}>
-				<Link
-					to="/"
-					style={{
-						color: `white`,
-						textDecoration: `none`,
-					}}
-				>
+				<Link to="/" className="layoutheader__link">
 					{siteTitle}
 				</Link>
 			</h1>
 		</div>
-	</header>
+	</div>
 );
-
-Header.defaultProps = {
-	siteTitle: ``,
-};
 
 export default Header;

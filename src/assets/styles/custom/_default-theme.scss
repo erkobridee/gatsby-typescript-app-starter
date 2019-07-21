@@ -1,0 +1,24 @@
+$md-colors: (
+	color-primary: #6d2f9c,
+	color-primary-light: #9e5dce,
+	color-primary-dark: #3d006d,
+	color-on-primary: #ffffff,
+	color-on-primary-light: #000000,
+	color-on-primary-dark: #ffffff,
+	color-secundary: #ffae1f,
+	color-secundary-light: #ffe058,
+	color-secundary-dark: #c77f00,
+	color-on-secundary: #000000,
+	color-on-secundary-light: #000000,
+	color-on-secundary-dark: #000000,
+	color-error: #b00020,
+	color-on-error: #ffffff,
+	color-background: #ffffff,
+	color-on-background: #000000,
+	color-surface: #ffffff,
+	color-on-surface: #000000,
+);
+
+:root {
+	@include convertToCssColors($md-colors);
+}
