@@ -20,15 +20,15 @@
 
 	@if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
 		& {
-			font-size: $min-font-size;
+			--text-base-size: $min-font-size;
 			@media screen and (min-width: $min-vw) {
-				font-size: calc(
+				--text-base-size: calc(
 					#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} *
 						((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)})
 				);
 			}
 			@media screen and (min-width: $max-vw) {
-				font-size: $max-font-size;
+				--text-base-size: $max-font-size;
 			}
 		}
 	}

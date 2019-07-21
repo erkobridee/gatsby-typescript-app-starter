@@ -1,5 +1,4 @@
 html {
-	@include fluid-type($min_width, $max_width, $min_font, $max_font);
 	font-size: var(--text-base-size);
 	font-family: var(--font-family);
 	text-size-adjust: 100%;
@@ -12,6 +11,7 @@ body {
 	background-color: var(--body-bg, #{color(color-white)});
 	color: var(--body-text-color, #{color(color-black)});
 	font-weight: var(--font-weight-normal);
+	font-size: var(--text-md);
 	word-wrap: break-word;
 	font-kerning: normal;
 	font-feature-settings: 'kern', 'liga', 'clig', 'calt';

@@ -5,7 +5,8 @@ $min_font: 15px;
 $max_font: 17px;
 
 :root {
-	--text-base-size: var(--base-unit);
+	@include fluid-type($min_width, $max_width, $min_font, $max_font);
+
 	--text-xxl: 2.25rem;
 	--text-xl: 1.62671rem;
 	--text-lg: 1.38316rem;
