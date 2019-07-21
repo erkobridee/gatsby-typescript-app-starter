@@ -1,0 +1,21 @@
+@import 'assets/styles/base/_mixins.scss';
+
+.languageselector {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	&__label {
+		margin-right: var(--languageselector-label-margin-right, var(--space-md));
+	}
+
+	&__select {
+		color: var(--languageselector-select-color, initial);
+		background: var(--languageselector-select-bg, transparent);
+
+		&container {
+			border: 1px solid var(--languageselector-select-border, initial);
+			border-radius: var(--languageselector-border-radius, var(--default-border-radius));
+		}
+	}
+}

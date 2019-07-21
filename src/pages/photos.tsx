@@ -5,7 +5,7 @@ import Layout from 'components/Layout';
 import Photos from 'domains/Photos';
 
 const PhotosPage = () => (
-	<Layout displayFooter={false}>
+	<Layout>
 		<Photos />
 	</Layout>
 );

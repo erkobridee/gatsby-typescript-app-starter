@@ -1,7 +1,6 @@
-.layoutheader {
-	background-color: var(--header-bg);
-	color: var(--header-color);
+@import 'assets/styles/base/_mixins.scss';
 
+.layoutheader {
 	a,
 	.link {
 		--link: var(--link-inverted-active);
@@ -17,10 +16,29 @@
 	}
 
 	justify-content: center;
+	background-color: var(--header-bg);
+	color: var(--header-color);
 
 	&__content {
-		padding: var(--space-md);
 		justify-content: space-between;
 		max-width: var(--max-app-width);
+		padding: var(--space-md);
+
+		@include breakpoint-max(sm) {
+			padding: var(--space-lg) var(--space-md);
+		}
+	}
+
+	&__title {
+		font-size: var(--text-xxl);
+		font-weight: var(--font-weight-bold);
+
+		@include breakpoint-max(sm) {
+			font-size: var(--text-xl);
+		}
+
+		@include breakpoint-max(xs) {
+			font-size: var(--text-lg);
+		}
 	}
 }

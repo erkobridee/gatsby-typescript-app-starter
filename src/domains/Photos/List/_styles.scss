@@ -1,8 +1,10 @@
+@import 'assets/styles/base/_mixins.scss';
+
 .photos {
 	&__hasmore {
 		display: flex;
 		justify-content: center;
-		margin-top: var(--space-md);
+		margin-top: var(--space-lg);
 		margin-bottom: var(--space-md);
 	}
 
@@ -14,7 +16,13 @@
 		--tiles-gutter: var(--space-lg);
 	}
 
-	@media screen and (max-width: 960px) {
+	--tiles-columns: 1;
+
+	@include breakpoint(sm) {
 		--tiles-columns: 2;
+	}
+
+	@include breakpoint(lg) {
+		--tiles-columns: 3;
 	}
 }

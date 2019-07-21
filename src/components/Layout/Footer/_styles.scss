@@ -1,3 +1,5 @@
+@import 'assets/styles/base/_mixins.scss';
+
 .layoutfooter {
 	background-color: var(--footer-bg);
 	color: var(--footer-color);
@@ -18,8 +20,19 @@
 	justify-content: center;
 
 	&__content {
-		padding: var(--space-md);
 		justify-content: space-between;
 		max-width: var(--max-app-width);
+		padding: var(--space-md);
+
+		@include breakpoint-max(sm) {
+			flex-direction: column;
+			justify-content: flex-start;
+			font-size: var(--text-sm);
+			padding: var(--space-lg) var(--space-md);
+
+			& > *:not(:first-child) {
+				margin-top: var(--space-sm);
+			}
+		}
 	}
 }

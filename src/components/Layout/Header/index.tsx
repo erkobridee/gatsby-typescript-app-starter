@@ -10,11 +10,11 @@ interface IHeader {
 const Header: React.FunctionComponent<IHeader> = ({ siteTitle = '' }) => (
 	<div className="layoutheader">
 		<div className="layoutheader__content">
-			<h1 style={{ margin: 0 }}>
+			<div className="layoutheader__title">
 				<Link to="/" className="layoutheader__link">
 					{siteTitle}
 				</Link>
-			</h1>
+			</div>
 		</div>
 	</div>
 );
