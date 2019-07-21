@@ -2,5 +2,5 @@
 	display: grid;
 	grid-template-columns: repeat(var(--tiles-columns, 3), 1fr);
 	grid-gap: var(--tiles-gutter, 0);
-	padding: var(--tiles-gutter, 0);
+	padding: var(--tiles-padding, 0);
 }
