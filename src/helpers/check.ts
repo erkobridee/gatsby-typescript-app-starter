@@ -31,6 +31,8 @@ const isObjectBasicCheck = <T extends object>(value: any): value is T =>
 export const isObject = <T extends object>(value: any): value is T =>
 	isObjectBasicCheck(value) && TO_STRING.call(value) === '[object Object]';
 
+export const isArray = <T extends []>(value: any): value is T => Array.isArray(value);
+
 export const isString = <T extends string>(value: any): value is T =>
 	value !== null && typeof value === JSTypeof.STRING && TO_STRING.call(value) === '[object String]';
 

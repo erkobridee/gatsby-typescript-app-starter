@@ -65,6 +65,8 @@ export type TEmptyCallback = () => void;
 
 export type TCallback = TEmptyCallback | TFunction;
 
+export type TTypeCallback<R, P = any> = (options?: P) => R;
+
 export type TRenderFunction<T> = (options?: T) => JSX.Element;
 
 export type TRender<T = any> = TRenderFunction<T> | React.ReactNode;
