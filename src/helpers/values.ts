@@ -1,6 +1,18 @@
-import uuidv4 from 'uuid/v4';
-import { isObject, isArray, isFunction } from './check';
-import { TTypeCallback } from './definitions';
+import { isObject, isArray } from './check';
+
+//----------------------------------------------------------------------------//
+
+export const getPropertyValue = <Object, Key extends keyof Object>(object: Object, propertyName: Key): Object[Key] =>
+	object[propertyName];
+
+export const setPropertyValue = <Object, Key extends keyof Object, Value extends Object[Key]>(
+	object: Object,
+	propertyName: Key,
+	value: Value
+): Object => {
+	object[propertyName] = value;
+	return object;
+};
 
 //----------------------------------------------------------------------------//
 
@@ -49,31 +61,18 @@ export const paginate = <T extends any>(data: T[], start: number = 0, pageSize: 
 export const randomSetOfData = <T extends any>(data: T[], amount: number = randomInt(1, 10)): T[] =>
 	paginate(data, calculateAvailablePages(data, amount), amount);
 
-export const randomAmountOfData = <T extends any>(
-	data: T[],
-	amount: number = randomInt(1, 10),
-	key: TTypeCallback<string> | string = () => uuidv4()
-): T[] => {
+export const randomAmountOfData = <T extends any>(data: T[], amount: number = randomInt(1, 10)): T[] => {
 	const output: T[] = [];
-	const { length: dataLength } = data;
-	if (dataLength === 0) {
+	if (data.length === 0) {
 		return output;
 	}
-
-	const map: Map<string, undefined> = new Map();
-	const getKey = (value: T) => (!isObject(value) ? value : isFunction(key) ? key() : value[key]);
+	data = [...data];
 	while (output.length < amount) {
-		const item = randomValue(data, dataLength);
-		if (item) {
-			const mapKey = getKey(item);
-			if (!map.has(mapKey)) {
-				output.push(item);
-				map.set(mapKey, undefined);
-			}
-		}
+		const index = randomInt(0, data.length - 1);
+		output.push(data[index]);
+		data.splice(index, 1);
+		data = [...data];
 	}
-	map.clear();
-
 	return output;
 };
 
