@@ -67,18 +67,25 @@ export async function buildRequest<R extends IAPIResponse = IAPIResponse>(option
 		parameters = { ...parameters, _: Math.random() };
 	}
 
+	const getRequestURL = () => {
+		const pathname = api ? path.join(api, urlPath) : urlPath;
+		if (!host) {
+			return pathname;
+		}
+
+		return url.format({
+			slashes: true,
+			protocol,
+			host,
+			pathname,
+		});
+	};
+
 	/**
 	 * Request URL is the URL that we will call and all the variable is replaced to values
 	 * @type {string}
 	 */
-	let requestUrl = url.format({
-		...{
-			protocol,
-			slashes: true,
-			pathname: api ? path.join(api, urlPath) : urlPath,
-		},
-		...(host ? { host } : {}),
-	});
+	let requestUrl = getRequestURL();
 
 	/**
 	 * Replace url path variables, like {userId}
