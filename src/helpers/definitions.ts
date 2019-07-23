@@ -57,19 +57,17 @@ export type TJSObject = Record<string, any>;
 
 export type TJSValue = TJSObject | any;
 
-export type TArrayFilter<T> = (x: T) => boolean;
+export type TArrayFilter<Item> = (item: Item) => boolean;
 
-export type TFunction = (...args: any[]) => any;
+export type TFunction<Tuple extends any[] = any[], Return = any> = (...args: Tuple) => Return;
 
 export type TEmptyCallback = () => void;
 
-export type TCallback = TEmptyCallback | TFunction;
+export type TCallback<Tuple extends any[] = any[], Return = any> = TFunction<Tuple, Return> | TEmptyCallback;
 
-export type TTypeCallback<R, P = any> = (options?: P) => R;
+export type TTypeCallback<Return, Options = any> = (options?: Options) => Return;
 
-export type TRenderFunction<T> = (options?: T) => JSX.Element;
-
-export type TRender<T = any> = TRenderFunction<T> | React.ReactNode;
+export type TRender<RenderOptions = any> = TFunction<[RenderOptions], JSX.Element> | React.ReactNode;
 
 //---
 
