@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IProjectWindow, TO_STRING, JSTypeof, TFunction } from './definitions';
+import { IProjectWindow, TRUTHY, TO_STRING, JSTypeof, TFunction } from './definitions';
 
 // ---------------------------------------------------------------------------- //
 // @begin: pre defined values
@@ -43,6 +43,8 @@ export const isReactElement = <T extends React.ReactNode>(value: any): value is 
 	isObjectBasicCheck(value) && '$$typeof' in value;
 
 export const isEmptyChildren = (children: React.ReactNode) => React.Children.count(children) === 0;
+
+export const isTrue = (value: any): boolean => TRUTHY.test(value) && !!value;
 
 // @end: check values
 // ---------------------------------------------------------------------------- //

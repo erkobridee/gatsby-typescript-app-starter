@@ -7,6 +7,10 @@ export const DEFAULT_PAGE_SIZE = 25;
 
 export const TO_STRING = {}.toString;
 
+export const TRUTHY = /^(?:t(?:rue)?|y(?:es)?|on|1)$/i;
+
+export const FALSY = /^(?:f(?:alse)?|no?|off|0)$/i;
+
 // @end: constants block
 // ---------------------------------------------------------------------------- //
 // @begin: enums block

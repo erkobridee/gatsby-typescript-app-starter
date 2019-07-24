@@ -14,7 +14,8 @@ export const loadPhotos = async (parameters?: IPhotosParams): Promise<IPhotosRes
 
 	try {
 		const responseObject = await buildRequest<IPhotosAPIResponse>({
-			urlPath: 'jsonplaceholder.typicode.com/photos',
+			host: 'jsonplaceholder.typicode.com',
+			urlPath: 'photos',
 			parameters: apiParams,
 		});
 

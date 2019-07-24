@@ -107,11 +107,11 @@ A quick look at the top-level files and directories you'll see in this project.
 
 -   check the code (typings and lint): `npm run check`
 
--   start the development server: `npm run develop` or `npm start`
+-   start the development server: `npm run develop` or `npm start` (if you need to read a specific `.env` file, define the `NODE_ENV` before the command)
 
 -   cleanup the temporary directories: `npm run clean`
 
--   build the production output version: `npm run build`
+-   build the production output version: `npm run build` (if you need to read a specific `.env` file, define the `ACTIVE_ENV` before the command)
 
 -   test the production outputed version: `npm run serve`
 
@@ -140,5 +140,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
     -   the project has the configuration to be able to use absolute imports on the code ( [Gatsby Docs - Absolute imports](https://www.gatsbyjs.org/docs/add-custom-webpack-config/#absolute-imports) )
 
     -   [Gatsby Docs - How to use a custom `.babelrc` file](https://www.gatsbyjs.org/docs/babel/#how-to-use-a-custom-babelrc-file)
+
+    -   [Gatsby Docs - Environment Variables](www.gatsbyjs.org/docs/environment-variables/)
 
     -   [Building Apps with Gatsby](https://www.gatsbyjs.org/docs/building-apps-with-gatsby/)
