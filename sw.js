@@ -26,7 +26,7 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-b487b3ba9c11f79c20ed.js"
+    "url": "webpack-runtime-1ae7cd8ade666f76a0ca.js"
   },
   {
     "url": "styles.8f97f154a3d4f04575bd.css"
@@ -35,14 +35,14 @@ self.__precacheManifest = [
     "url": "styles-1100dc8a44db10155e02.js"
   },
   {
-    "url": "app-b2618522b6d48fcbadd8.js"
+    "url": "app-776523674fdb8fa16871.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-5750dd0079258b3469d0.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "78c1e204fa51876ff9010f37dedeeb8c"
+    "revision": "2f513d4457faace7484ef743275a9d99"
   },
   {
     "url": "component---src-pages-404-tsx-907ab006b9e89c5acbd7.js"
@@ -52,11 +52,11 @@ self.__precacheManifest = [
   },
   {
     "url": "page-data/404.html/page-data.json",
-    "revision": "72637d9a92dde88acb4dac121b836420"
+    "revision": "1898cc86fac84c2505a3acd6e29abf2b"
   },
   {
     "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "86f94393585ca8581cde7f392b47b98b"
+    "revision": "57fe6d2c26e906be9c0fdfae0444dd0d"
   },
   {
     "url": "manifest.webmanifest",
@@ -82,7 +82,7 @@ const navigationRoute = new workbox.routing.NavigationRoute(({ event }) => {
   return idbKeyval.get(WHITELIST_KEY).then((customWhitelist = []) => {
     // Respond with the offline shell if we match the custom whitelist
     if (customWhitelist.includes(pathname)) {
-      const offlineShell = `/./offline-plugin-app-shell-fallback/index.html`
+      const offlineShell = `/gatsby-typescript-app-starter/offline-plugin-app-shell-fallback/index.html`
       const cacheName = workbox.core.cacheNames.precache
 
       return caches.match(offlineShell, { cacheName }).then(cachedResponse => {
@@ -154,7 +154,7 @@ const messageApi = {
 
     pathnames = pathnames.map(({ pathname, includesPrefix }) => {
       if (!includesPrefix) {
-        return `/.${pathname}`
+        return `/gatsby-typescript-app-starter${pathname}`
       } else {
         return pathname
       }
