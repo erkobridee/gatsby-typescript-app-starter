@@ -1,0 +1,5 @@
+@mixin font-icon-content($name: null, $suffix: '_icon') {
+	@if ($name != null) {
+		@extend .icon-#{$name}#{$suffix}:before;
+	}
+}
