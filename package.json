@@ -47,6 +47,7 @@
 		"gatsby-plugin-typescript": "^2.0.15",
 		"gatsby-source-filesystem": "^2.0.43",
 		"gatsby-transformer-sharp": "^2.1.21",
+		"gh-pages": "^2.0.1",
 		"node-sass": "^4.12.0",
 		"npm-run-all": "^4.1.5",
 		"postcss-preset-env": "^6.6.0",
@@ -86,7 +87,7 @@
 		"type-check": "tsc",
 		"gatsby-clean": "gatsby clean",
 		"gatsby-develop": "gatsby develop -H 0.0.0.0",
-		"gatsby-build": "gatsby build",
+		"gatsby-build": "gatsby build --prefix-paths",
 		"gatsby-serve": "gatsby serve -H 0.0.0.0",
 		"clean:build": "node scripts/fs/rm .build/",
 		"clean": "npm-run-all -p clean:build fonticons:clean gatsby-clean",
@@ -95,7 +96,9 @@
 		"develop": "npm-run-all -s base gatsby-develop",
 		"start": "npm run develop",
 		"build": "npm-run-all -s clean base gatsby-build ",
-		"serve": "npm-run-all -s build gatsby-serve"
+		"serve": "npm-run-all -s build gatsby-serve",
+		"gh-deploy": "gh-pages -d public",
+		"deploy": "PREFIX_PATH=true npm-run-all -s build gh-deploy"
 	},
 	"browserslist": [
 		">1%",

@@ -8,6 +8,9 @@ const args = require('yargs').options({
 	},
 }).argv;
 
+const pkg = require('../package.json');
+const pathPrefix = process.env.PREFIX_PATH === 'true' ? `/${pkg.name}` : '';
+
 const [source] = args._;
 const { fontname, cssfontsurl = '/generated/fonticons/' } = args;
 
@@ -40,7 +43,7 @@ fs.readdir(iconsFolder, (err, files) => {
 			dest: destinationFolder,
 			fontName: fontname,
 			cssDest: destinationCss,
-			cssFontsUrl: cssfontsurl,
+			cssFontsUrl: `${pathPrefix}${cssfontsurl}`,
 		},
 		function(err) {
 			if (err) {
