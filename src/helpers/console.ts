@@ -5,8 +5,10 @@
 // Disable missing translation message as translations will be added later.
 // We can add a toggle for this later when we have most translations.
 
+type TConsoleError = (message?: any, ...optionalParams: any[]) => void;
+
 // eslint-disable-next-line
-const consoleError = console.error.bind(console);
+const consoleError: TConsoleError = console.error.bind(console);
 // eslint-disable-next-line
 console.error = (message: any, ...args: any[]) => {
 	if (
