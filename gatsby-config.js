@@ -24,9 +24,9 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-typescript-starter`,
+				name: `gatsby-typescript-app-starter`,
 				short_name: `ts-starter`,
-				start_url: `/`,
+				start_url: `.`,
 				background_color: `#ffffff`,
 				theme_color: `#6d2f9c`,
 				display: `minimal-ui`,
@@ -47,6 +47,14 @@ module.exports = {
 		},
 		// this (optional) plugin enables Progressive Web App + Offline functionality
 		// To learn more, visit: https://gatsby.dev/offline
-		`gatsby-plugin-offline`,
+		// `gatsby-plugin-offline`,
+		// {
+		// 	resolve: `gatsby-plugin-offline`,
+		// 	options: {
+		// 		modifyUrlPrefix: {
+		// 			'/': `${pathPrefix}/`,
+		// 		},
+		// 	},
+		// },
 	],
 };
