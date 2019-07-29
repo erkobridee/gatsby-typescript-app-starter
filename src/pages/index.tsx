@@ -25,11 +25,11 @@ const IndexPage = () => {
 				<GatsbyAstronoutImage />
 			</div>
 			<div>
-				<Link to="/page-2/">
+				<Link to="page-2">
 					<FormattedMessage id="home.link-page2" defaultMessage="Go to page 2" />
 				</Link>{' '}
 				{' | '}
-				<Link to="/photos/">
+				<Link to="photos">
 					<FormattedMessage id="home.link-photos" defaultMessage="Go to photos" />
 				</Link>
 			</div>

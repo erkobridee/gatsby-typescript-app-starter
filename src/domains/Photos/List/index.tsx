@@ -28,7 +28,7 @@ const PhotosList: React.FunctionComponent<IPhotosList> = () => {
 		dispatch(loadPhotos({ page: 0, countPerPage, previousTotalCount: photosList.length }));
 	}, []);
 
-	const navigateToPhoto = (id: number) => () => navigate(`/photos/${id}`);
+	const navigateToPhoto = (id: number) => () => navigate(`photos/${id}`);
 
 	const buildTileElement = (item: PhotoModel, index: number) => (
 		<Tile key={index} onClick={navigateToPhoto(item.id)}>

@@ -19,7 +19,7 @@ const Photos: React.FunctionComponent<IPhotos> = () => {
 	}, []);
 
 	return (
-		<Router basepath="photos">
+		<Router basepath="gatsby-typescript-app-starter/photos">
 			<PhotosList path="/" />
 			<PhotoView path=":id" />
 		</Router>
