@@ -4,7 +4,6 @@ import * as qs from 'qs';
 import {
 	IDictionary,
 	RequestContentTypes,
-	RequestProtocol,
 	RequestMethod,
 	TRequestBody,
 	IRequestOptions,
@@ -52,7 +51,7 @@ export async function buildRequest<R extends IAPIResponse = IAPIResponse>(option
 		authorization,
 		method = RequestMethod.GET,
 		contentType = RequestContentTypes.JSON,
-		protocol = RequestProtocol.HTTPS,
+		protocol,
 		host,
 		api,
 		urlPath,
@@ -74,10 +73,12 @@ export async function buildRequest<R extends IAPIResponse = IAPIResponse>(option
 		}
 
 		return url.format({
-			slashes: true,
-			protocol,
-			host,
-			pathname,
+			...{
+				slashes: true,
+				host,
+				pathname,
+			},
+			...(protocol ? { protocol } : {}),
 		});
 	};
 
