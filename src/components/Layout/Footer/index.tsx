@@ -16,7 +16,7 @@ const Footer: React.FunctionComponent = () => (
 					Gatsby <FontIcon name="heart" />
 				</a>
 			</div>
-			<LanguageSelector />
+			<LanguageSelector className="layoutfooter__select" />
 		</div>
 	</div>
 );

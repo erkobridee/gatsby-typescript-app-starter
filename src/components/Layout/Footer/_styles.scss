@@ -35,4 +35,9 @@
 			}
 		}
 	}
+
+	&__select {
+		--languageselector-select-color: var(--footer-color);
+		--languageselector-select-border: var(--footer-color);
+	}
 }
