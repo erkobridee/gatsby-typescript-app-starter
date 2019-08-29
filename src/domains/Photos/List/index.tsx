@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import { RouteComponentProps, navigate } from '@reach/router';
+import { RouteComponentProps /*, navigate*/ } from '@reach/router';
+import { /*withPrefix,*/ navigate } from 'gatsby';
 
 import { selectPhotosList, selectHasMore, selectIsFetching } from 'store/state/photos/selectors';
 import { loadPhotos } from 'store/state/photos/operations';
@@ -28,7 +29,8 @@ const PhotosList: React.FunctionComponent<IPhotosList> = () => {
 		dispatch(loadPhotos({ page: 0, countPerPage, previousTotalCount: photosList.length }));
 	}, []);
 
-	const navigateToPhoto = (id: number) => () => navigate(`/gatsby-typescript-app-starter/photos/${id}`);
+	// const navigateToPhoto = (id: number) => () => navigate(`/gatsby-typescript-app-starter/photos/${id}`);
+	const navigateToPhoto = (id: number) => () => navigate(`/photos/${id}`);
 
 	const buildTileElement = (item: PhotoModel, index: number) => (
 		<Tile key={index} onClick={navigateToPhoto(item.id)}>
@@ -67,4 +69,4 @@ const PhotosList: React.FunctionComponent<IPhotosList> = () => {
 	);
 };
 
-export default React.memo(PhotosList);
+export default PhotosList;

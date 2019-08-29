@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { withPrefix } from 'gatsby';
 import { Router, RouteComponentProps } from '@reach/router';
 import { useDispatch } from 'react-redux';
 
@@ -19,7 +20,7 @@ const Photos: React.FunctionComponent<IPhotos> = () => {
 	}, []);
 
 	return (
-		<Router basepath="gatsby-typescript-app-starter/photos">
+		<Router basepath={withPrefix('/photos')}>
 			<PhotosList path="/" />
 			<PhotoView path=":id" />
 		</Router>

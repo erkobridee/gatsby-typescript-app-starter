@@ -9,7 +9,7 @@ const args = require('yargs').options({
 }).argv;
 
 const pkg = require('../package.json');
-const pathPrefix = process.env.PREFIX_PATH === 'true' ? `/${pkg.name}` : '';
+const pathPrefix = require('./get-path-prefix')(pkg);
 
 const [source] = args._;
 const { fontname, cssfontsurl = '/generated/fonticons/' } = args;

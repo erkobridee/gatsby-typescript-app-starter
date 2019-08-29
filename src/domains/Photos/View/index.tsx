@@ -40,4 +40,4 @@ const PhotoView: React.FunctionComponent<IPhotoView> = ({ id }) => {
 	);
 };
 
-export default React.memo(PhotoView);
+export default PhotoView;

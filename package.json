@@ -38,7 +38,7 @@
 		"fs-extra": "^8.1.0",
 		"gatsby": "^2.13.41",
 		"gatsby-image": "^2.2.7",
-		"gatsby-plugin-create-client-paths": "^2.1.3",
+		"gatsby-plugin-create-client-paths": "^2.1.5",
 		"gatsby-plugin-manifest": "^2.2.4",
 		"gatsby-plugin-offline": "^2.2.4",
 		"gatsby-plugin-react-helmet": "^3.1.2",
@@ -107,5 +107,8 @@
 		"iOS >= 9",
 		"Android >= 4.4",
 		"not op_mini all"
-	]
+	],
+	"gatsby": {
+		"pathPrefix": "gatsby-typescript-app-starter"
+	}
 }
