@@ -1,10 +1,6 @@
 const postcssPresetEnv = require('postcss-preset-env');
 
-const pkg = require('./package.json');
-const pathPrefix = require('./scripts/get-path-prefix')(pkg);
-
-const config = {
-	pathPrefix: pathPrefix,
+const gatsbyConfig = {
 	siteMetadata: {
 		title: `Gatsby TypeScript Application Starter`,
 		description: `Kick off your next, great Gatsby typescript application project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
@@ -59,4 +55,21 @@ const config = {
 	],
 };
 
-module.exports = config;
+const pkg = require('./package.json');
+const pathPrefix = require('./scripts/get-path-prefix')(pkg);
+if (pathPrefix) {
+	gatsbyConfig.pathPrefix = pathPrefix;
+
+	gatsbyConfig.plugins.push({
+		resolve: `gatsby-plugin-offline`,
+		options: {
+			modifyUrlPrefix: {
+				'/': `${pathPrefix}/`,
+			},
+		},
+	});
+} else {
+	gatsbyConfig.plugins.push(`gatsby-plugin-offline`);
+}
+
+module.exports = gatsbyConfig;

@@ -10,11 +10,11 @@
 	}
 
 	&__select {
-		color: var(--languageselector-select-color, initial);
+		color: var(--languageselector-select-color, var(--color-on-primary));
 		background: var(--languageselector-select-bg, transparent);
 
 		&container {
-			border: 1px solid var(--languageselector-select-border, initial);
+			border: 1px solid var(--languageselector-select-border, var(--color-on-primary));
 			border-radius: var(--languageselector-border-radius, var(--default-border-radius));
 		}
 	}

@@ -32,7 +32,7 @@ const PhotoView: React.FunctionComponent<IPhotoView> = ({ id }) => {
 				) : (
 					<FormattedMessage id="photo.not-found" defaultMessage="Photo: {id} - Not Found" values={{ id }} />
 				)}
-				<Link to="photos" className="photo__link">
+				<Link to="/photos" className="photo__link">
 					<FormattedMessage id="photo.return-to-photos" defaultMessage="Return to photos" />
 				</Link>
 			</div>
