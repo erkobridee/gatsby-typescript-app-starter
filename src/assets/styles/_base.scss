@@ -1,10 +1,9 @@
+@import 'base/mixins';
+
 :root {
-	// https://websemantics.uk/articles/font-size-conversion/
-	// 10px when the html font-size is the default value
-	--base-unit: 0.625rem;
+	--base-unit: #{pixels2rem(10px)};
 }
 
-@import 'base/mixins';
 @import 'base/reset';
 @import 'base/z-index';
 @import 'base/colors';

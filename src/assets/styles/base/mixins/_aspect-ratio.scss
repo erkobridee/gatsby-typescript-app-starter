@@ -1,4 +1,19 @@
 /*
+	Mixin that allows to define a fixed aspect
+	
+	the default value will generate a square aspect
+*/
+@mixin aspect-fixed($height: 100%) {
+	position: relative;
+	&:before {
+		display: block;
+		content: '';
+		width: 100%;
+		padding-top: $height;
+	}
+}
+
+/*
     Mixin to set aspect ratio.
 
     1, 1 - square
@@ -8,11 +23,5 @@
 	@include aspect-ratio(16, 9);
  */
 @mixin aspect-ratio($width, $height) {
-	position: relative;
-	&:before {
-		display: block;
-		content: '';
-		width: 100%;
-		padding-top: ($height / $width) * 100%;
-	}
+	@include aspect-fixed(($height / $width) * 100%);
 }

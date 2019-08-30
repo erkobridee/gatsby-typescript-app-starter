@@ -1,8 +1,7 @@
-/* typography */
-$min_width: 600px;
-$max_width: 1400px;
-$min_font: 15px;
-$max_font: 17px;
+$min_width: 500px;
+$max_width: 1280px;
+$min_font: 14px;
+$max_font: 16px;
 
 $text_opacity_active: 1;
 $text_opacity_inactive: 0.6;
@@ -12,12 +11,14 @@ $text_opacity_error: 1;
 :root {
 	@include fluid-type($min_width, $max_width, $min_font, $max_font);
 
-	--text-xxl: 2.25rem;
-	--text-xl: 1.62671rem;
-	--text-lg: 1.38316rem;
-	--text-md: 1rem;
-	--text-sm: 0.85028rem;
-	--text-xs: 0.78405rem;
+	// https://websemantics.uk/articles/font-size-conversion/
+	--text-xxxl: #{pixels2rem(42px)};
+	--text-xxl: #{pixels2rem(32px)};
+	--text-xl: #{pixels2rem(24px)};
+	--text-lg: #{pixels2rem(18px)};
+	--text-md: #{pixels2rem(16px)};
+	--text-sm: #{pixels2rem(14px)};
+	--text-xs: #{pixels2rem(12px)};
 
 	--text-opacity-active: #{$text_opacity_active};
 	--text-opacity-inactive: #{$text-opacity-inactive};
@@ -26,7 +27,7 @@ $text_opacity_error: 1;
 
 	--heading-line-height: 1.2;
 
-	--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+	--font-family: -apple-system, BlinkMacSystemFont, Roboto, 'Segoe UI', Helvetica, Arial, sans-serif,
 		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
 	--font-family-code: 'SFMono-Regular', Consolas, 'Roboto Mono', 'Droid Sans Mono', 'Liberation Mono', Menlo, Courier,

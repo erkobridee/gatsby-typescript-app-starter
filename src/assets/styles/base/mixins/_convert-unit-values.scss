@@ -1,0 +1,13 @@
+// https://websemantics.uk/articles/font-size-conversion/
+
+@function strip-unit($value) {
+	@return $value / ($value * 0 + 1);
+}
+
+@function convertPixels2RemValue($pixels: 1, $base: 16) {
+	@return strip-unit($pixels) / $base;
+}
+
+@function pixels2rem($pixels: 1, $base: 16) {
+	@return #{convertPixels2RemValue($pixels, $base)}rem;
+}
