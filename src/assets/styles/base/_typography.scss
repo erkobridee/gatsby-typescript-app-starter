@@ -4,6 +4,7 @@ $min_font: 14px;
 $max_font: 16px;
 
 $text_opacity_active: 1;
+$text_opacity_visited: 0.7;
 $text_opacity_inactive: 0.6;
 $text_opacity_disable: 0.38;
 $text_opacity_error: 1;
@@ -21,6 +22,7 @@ $text_opacity_error: 1;
 	--text-xs: #{pixels2rem(12px)};
 
 	--text-opacity-active: #{$text_opacity_active};
+	--text-opacity-visited: #{$text_opacity_visited};
 	--text-opacity-inactive: #{$text-opacity-inactive};
 	--text-opacity-disable: #{$text-opacity-disable};
 	--text-opacity-error: #{$text-opacity-error};

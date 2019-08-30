@@ -11,8 +11,10 @@
 	--link: rgba(var(--color-primary), var(--text-opacity-active));
 	--link-hover: rgba(var(--color-primary), var(--text-opacity-inactive));
 	--link-active: rgba(var(--color-primary), var(--text-opacity-active));
+	--link-visited: rgba(var(--color-primary), var(--text-opacity-visited));
 
 	--link-inverted: rgba(var(--color-on-primary), var(--text-opacity-inactive));
 	--link-inverted-hover: rgba(var(--color-on-primary), var(--text-opacity-active));
 	--link-inverted-active: rgba(var(--color-on-primary), var(--text-opacity-active));
+	--link-inverted-visited: rgba(var(--color-on-primary), var(--text-opacity-visited));
 }

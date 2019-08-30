@@ -1,6 +1,6 @@
 a,
 .link {
-	transition: var(--default-transition, none);
+	transition: var(--link-transition, var(--default-transition));
 	color: var(--link, inherit);
 	text-decoration: var(--link-decoration, none);
 
@@ -10,5 +10,9 @@ a,
 
 	&:active {
 		color: var(--link-active, inherit);
+	}
+
+	&:visited {
+		color: var(--link-visited, inherit);
 	}
 }
