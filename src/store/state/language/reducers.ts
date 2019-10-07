@@ -3,7 +3,7 @@ import createReducer from 'store/helpers/createReducer';
 import { IReducerMap } from 'store/helpers/definitions';
 import { LanguageActionTypes as Types, ILanguageAction, ILanguageState } from './definitions';
 
-const initialState: ILanguageState = {
+export const initialState: ILanguageState = {
 	locale: browserLocale,
 };
 
