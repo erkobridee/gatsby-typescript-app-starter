@@ -1,11 +1,19 @@
+:root {
+	--link-transition: var(--default-transition);
+	--link: inherit;
+	--link-decoration: none;
+	--link-hover: inherit;
+	--link-active: inherit;
+}
+
 a,
 .link {
-	transition: var(--link-transition, var(--default-transition));
-	color: var(--link, inherit);
-	text-decoration: var(--link-decoration, none);
+	transition: var(--link-transition);
+	color: var(--link);
+	text-decoration: var(--link-decoration);
 
 	&:hover {
-		color: var(--link-hover, inherit);
+		color: var(--link-hover);
 	}
 
 	&:active {
