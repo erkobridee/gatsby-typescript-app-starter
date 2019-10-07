@@ -41,17 +41,6 @@ const gatsbyConfig = {
 			resolve: `gatsby-plugin-create-client-paths`,
 			options: { prefixes: [`/photos/*`] },
 		},
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
-		// {
-		// 	resolve: `gatsby-plugin-offline`,
-		// 	options: {
-		// 		modifyUrlPrefix: {
-		// 			'/': `${pathPrefix}/`,
-		// 		},
-		// 	},
-		// },
 	],
 };
 
@@ -60,6 +49,7 @@ const pathPrefix = require('./scripts/get-path-prefix')(pkg);
 if (pathPrefix) {
 	gatsbyConfig.pathPrefix = pathPrefix;
 
+	// this (optional) plugin enables Progressive Web App + Offline functionality
 	gatsbyConfig.plugins.push({
 		resolve: `gatsby-plugin-offline`,
 		options: {
@@ -69,6 +59,7 @@ if (pathPrefix) {
 		},
 	});
 } else {
+	// this (optional) plugin enables Progressive Web App + Offline functionality
 	gatsbyConfig.plugins.push(`gatsby-plugin-offline`);
 }
 

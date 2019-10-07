@@ -74,7 +74,7 @@
 		"fonticons:clean-static": "node scripts/fs/rm static/generated/",
 		"fonticons:clean": "npm-run-all -p fonticons:clean-generated fonticons:clean-static fonticons:clean-scss",
 		"fonticons:compress-mkdir": "node scripts/fs/mkdir .build/icons/compressed",
-		"fonticons:compress-run": "svgo --enable=removeStyleElement --enable=removeScriptElement --enable=sortAttrs src/assets/icons/*.svg -o .build/icons/compressed > /dev/null",
+		"fonticons:compress-run": "svgo --config=svgo-config.json --enable=removeStyleElement --enable=removeScriptElement --enable=sortAttrs src/assets/icons/*.svg -o .build/icons/compressed > /dev/null",
 		"fonticons:compress": "npm-run-all -s fonticons:compress-mkdir fonticons:compress-run",
 		"fonticons:generate": "node scripts/font-generator static/generated/fonticons/ -f fonticons",
 		"fonticons:move-scss": "node scripts/fs/mv static/generated/fonticons/fonticons.scss src/assets/styles/generated/fonticons.scss",
