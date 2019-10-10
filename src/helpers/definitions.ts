@@ -112,6 +112,11 @@ export interface IBaseResponse<T = any> {
 	totalCount?: number;
 }
 
+export interface ICancelableBaseResponse<R extends IAPIResponse = IAPIResponse> {
+	controller?: AbortController;
+	request: TTypeCallback<Promise<R>>;
+}
+
 /**
  * Base response object returned from the buildRequest
  */
@@ -148,7 +153,9 @@ export interface IRequestOptions {
 	urlPath: string;
 	variables?: IDictionary;
 	parameters?: IDictionary;
+	headers?: IDictionary;
 	noCache?: boolean;
+	signal?: AbortSignal;
 }
 
 // @end: interfaces block

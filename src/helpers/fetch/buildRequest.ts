@@ -56,7 +56,9 @@ export async function buildRequest<R extends IAPIResponse = IAPIResponse>(option
 		api,
 		urlPath,
 		variables = {},
+		headers: extraHeaders = {},
 		noCache,
+		signal,
 	} = options;
 
 	/**
@@ -139,6 +141,12 @@ export async function buildRequest<R extends IAPIResponse = IAPIResponse>(option
 		headers.Authorization = authorization;
 	}
 
+	for (const extraHeader in extraHeaders) {
+		if (extraHeaders.hasOwnProperty(extraHeader)) {
+			headers[extraHeader] = extraHeaders[extraHeader];
+		}
+	}
+
 	/**
 	 * Do the fetch call and process its response
 	 */
@@ -147,6 +155,7 @@ export async function buildRequest<R extends IAPIResponse = IAPIResponse>(option
 			method,
 			headers,
 			body,
+			signal,
 		});
 
 		if (!response.ok) {
