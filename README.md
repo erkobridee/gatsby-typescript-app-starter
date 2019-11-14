@@ -13,51 +13,52 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+### 1. **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+Use the Gatsby CLI to create a new site, specifying the default starter.
 
-    ```sh
-    # create a new Gatsby site using the typescript application starter
-    gatsby new my-typescript-app-starter https://github.com/erkobridee/gatsby-typescript-app-starter
-    ```
+```sh
+# create a new Gatsby site using the typescript application starter
+gatsby new my-typescript-app-starter https://github.com/erkobridee/gatsby-typescript-app-starter
+```
 
-    Another way to create the a new project without having the Gatsby CLI
+Another way to create the a new project without having the Gatsby CLI
 
-    ```sh
-    npx gatsby new my-typescript-app-starter https://github.com/erkobridee/gatsby-typescript-app-starter
-    ```
+```sh
+npx gatsby new my-typescript-app-starter https://github.com/erkobridee/gatsby-typescript-app-starter
+```
 
-    **TIP:** double check if you need to have the _**.git**_ directory or you should delete it
+**TIP:** double check if you need to have the _**.git**_ directory or you should delete it
 
-1.  **Start developing.**
+### 2. **Start developing.**
 
-    Navigate into your new site’s directory and start it up.
+Navigate into your new site’s directory and start it up.
 
-    ```sh
-    cd my-typescript-app-starter/
-    npm i
-    npm start
-    ```
+```sh
+cd my-typescript-app-starter/
+npm i
+npm start
+```
 
-    or you can also use: `npm run develop`
+or you can also use: `npm run develop`
 
-1.  **Open the source code and start editing!**
+### 3. **Open the source code and start editing!**
 
-    Your site is now running at `http://localhost:8000`!
+Your site is now running at `http://localhost:8000`!
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+_Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    Open the `my-typescript-app-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+Open the `my-typescript-app-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
-A quick look at the top-level files and directories you'll see in this project.
+A quick look at the top-level files and directories you'll see in this project. [Gatsby Docs - Gatsby Project Structure](https://www.gatsbyjs.org/docs/gatsby-project-structure/).
 
     .
     ├── node_modules
     ├── scripts
     ├── src
+    ├── static
     ├── .babelrc.js
     ├── .eslintrc
     ├── .gitignore
@@ -67,35 +68,129 @@ A quick look at the top-level files and directories you'll see in this project.
     ├── gatsby-node.js
     ├── gatsby-ssr.js
     ├── gatsby-wrap-root-element.js
-    ├── LICENSE
     ├── package-lock.json
     ├── package.json
     ├── tsconfig.json
     └── README.md
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+-   **`/.build/.i18nExtractedMessages`** - i18n messages extracted from the code and those messages will be used to generate the JSON translation files.
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+-   **`/.cache`** - files manages by the Gatsby used to build the output on the **`/public`** folder.
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+-   **`/node_modules`** - This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+-   **`/public`** - Gatsby output directory, the content of this folder after the build flow must be copied to the server.
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+-   **`/scripts`** - contains font icons generation, the translations manager and the path prefix helper.
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+-   **`/src`** - This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+-   **`/static`** - static files that should be copied by the Gastby to the **`/public`** folder during the build flow. [Gatsby Docs - Adding assets outside of the module system](https://www.gatsbyjs.org/docs/static-folder/)
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+-   **`.gitignore`** - This file tells git which files it should not track / not maintain a version history for.
 
-9.  **`LICENSE`**: This project is licensed under the MIT license.
+-   **`.prettierrc`** - This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+-   **`gatsby-browser.js`** - This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+-   **`gatsby-config.js`** - This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+-   **`gatsby-node.js`** - This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+
+-   **`gatsby-ssr.js`** - This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+
+-   **`gatsby-wrap-root-element.js`** - used by **`gatsby-browser.js`** as the `export.wrapRootElement`, more details about it please check the [Gatsby browser APIs - wrapRootElement](https://www.gatsbyjs.org/docs/browser-apis/#wrapRootElement). The wrappers used by the application they are defined at the `src/components/Wrapper` folder.
+
+-   **`package-lock.json`** - (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+
+-   **`package.json`** - A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+
+-   **`README.md`** - A text file containing useful reference information about your project.
+
+### 📂 The `src/` folder - important items to know
+
+    .
+    └── src
+        ├── assets
+            ├── icons
+            ├── languages
+            └── styles
+        ├── components
+            ├── Layout
+            ├── SEO
+            ├── ui
+            └── Wrapper
+        ├── data
+            ├── api
+            ├── models
+            └── schemas
+        ├── domains
+        ├── helpers
+        ├── pages
+        ├── store
+            ├── helpers
+            ├── state
+            ├── definitions.ts
+            └── index.ts
+        └── html.js
+
+-   **`/assets`**
+
+    -   **`/icons`** - SVG files, each one represents a font icon, the file should be named following the pattern `{icon-name}_icon.svg` and to be easialy used on the project we have the component `FontIcon` located at the `src/components/ui/FontIcon` folder
+
+    -   **`/languages`** - translations JSON files generated from the extrated messages from the code, here you should maintain and update the keys entries to each supported language
+
+    -   **`/styles`** - global styles definitions and mixins which uses the SASS syntax
+
+-   **`/components`** - stand alone components
+
+    -   **`/Layout`** - components that defines the pages layouts used on the application
+
+    -   **`/SEO`** - component to easialy manage the HTML header elements, like the page title
+
+    -   **`/Wrapper`** - components related to the providers, for example, the redux, internationalization and so one
+
+    -   **`/ui`** - small ui components, like the `FontIcon` one
+
+-   **`/data`**
+
+    -   **`/schemas`** - defines the data structure used to communicate with the backends/APIs
+
+    -   **`/models`** - defines the data structure used inside of the application that receives as input one or more `schemas`.
+
+    -   **`/api`** - defines the communication with the backends/APIs using the data `schemas` definitions and transform them to data `models` to be used inside of the application.
+
+-   **`/domains`** - and/or use cases managed by the application, for example: authentication.
+
+-   **`/helpers`** - common code used across the aplication, like small processment code, fetch, react hooks and types/values definitions.
+
+-   **`/pages`** - the components on this directory will define the page content and the file name will define the URL path to the page.
+
+-   **`/store`** - code related to the [Redux](https://redux.js.org/) that follows the [re-ducks pattern](https://www.freecodecamp.org/news/scaling-your-redux-app-with-ducks-6115955638be/), check on the notes section to read more about this pattern.
+
+    -   **`/helpers`** - has a create reducer as an object definition instead of need to define as a switch case pattern
+
+    -   **`/state`** - the redux states are placed inside of this directory
+
+        -   **`/{statename}`** - defines one redux state
+
+            -   **`definitions.ts`** - defines the action types strings, the state object interface and the triggered actions interface
+
+            -   **`actions.ts`** - defines the actions triggered that uses the types and actions interfaces defined on the `definitions.ts`
+
+            -   **`operations.ts`** - defines the operations that manages a async flow or manage a set of actions to be triggered
+
+            -   **`reducers.ts`** - defines the redux reducers to the given redux state
+
+            -   **`selectors.ts`** - access data from the given redux state
+
+            -   **`index.ts`** - expose the redux reducers from the given directory
+
+    -   **`definitions.ts`** - defines the Redux root state type definition
+
+    -   **`index.ts`** - defines the Redux store
+
+-   **`html.js`** - overwrites the default Gatsby index.html generation [Gatsby Doc - Customizing html.js](https://www.gatsbyjs.org/docs/custom-html/), it was needed to redefine the `viewport` configuration to avoid the zoom in on the iOS devices ([Prevent iOS from zooming in on input fields](https://blog.osmosys.asia/2017/01/05/prevent-ios-from-zooming-in-on-input-fields/))
 
 ## 💻 Available Commands
 
