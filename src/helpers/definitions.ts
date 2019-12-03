@@ -1,4 +1,4 @@
-import { LocaleData } from 'react-intl';
+import { RelativeTimeLocaleData } from '@formatjs/intl-utils';
 
 // ---------------------------------------------------------------------------- //
 // @begin: constants block
@@ -96,7 +96,7 @@ export interface IProjectWindow extends Window {
 
 export interface ILocale {
 	locale: string;
-	localeData: LocaleData;
+	localeData: RelativeTimeLocaleData;
 	messages: IDictionary<string>;
 }
 

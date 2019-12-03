@@ -14,7 +14,17 @@
 		}
 	},
 	"rules": {
-		"max-len": ["error", { "code": 120, "ignoreUrls": true }],
+		"max-len": [
+			"error",
+			{
+				"code": 120,
+				"ignoreComments": false,
+				"ignoreTrailingComments": true,
+				"ignoreUrls": true,
+				"ignoreStrings": true,
+				"ignoreTemplateLiterals": true
+			}
+		],
 		"import/prefer-default-export": false,
 		"@typescript-eslint/explicit-function-return-type": false
 	}

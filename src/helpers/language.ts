@@ -28,7 +28,7 @@ export async function loadLocale(locale?: string): Promise<ILocale> {
 				/* webpackMode: "lazy", webpackChunkName: "language_pt" */ `assets/languages/pt.json`
 			)).default;
 			localeData = (await import(
-				/* webpackMode: "lazy", webpackChunkName: "language_pt" */ `react-intl/locale-data/pt`
+				/* webpackMode: "lazy", webpackChunkName: "language_pt" */ `@formatjs/intl-relativetimeformat/dist/locale-data/pt.json`
 			)).default;
 			return { locale, messages, localeData };
 		case 'es':
@@ -36,7 +36,7 @@ export async function loadLocale(locale?: string): Promise<ILocale> {
 				/* webpackMode: "lazy", webpackChunkName: "language_es" */ `assets/languages/es.json`
 			)).default;
 			localeData = (await import(
-				/* webpackMode: "lazy", webpackChunkName: "language_es" */ `react-intl/locale-data/es`
+				/* webpackMode: "lazy", webpackChunkName: "language_es" */ `@formatjs/intl-relativetimeformat/dist/locale-data/es.json`
 			)).default;
 			return { locale, messages, localeData };
 		case 'en':
@@ -46,7 +46,7 @@ export async function loadLocale(locale?: string): Promise<ILocale> {
 				/* webpackMode: "lazy", webpackChunkName: "language_en" */ `assets/languages/en.json`
 			)).default;
 			localeData = (await import(
-				/* webpackMode: "lazy", webpackChunkName: "language_en" */ `react-intl/locale-data/en`
+				/* webpackMode: "lazy", webpackChunkName: "language_en" */ `@formatjs/intl-relativetimeformat/dist/locale-data/en.json`
 			)).default;
 			return { locale, messages, localeData };
 	}

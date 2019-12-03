@@ -1,7 +1,7 @@
 import * as React from 'react';
 import cn from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
-import { FormattedMessage, defineMessages, injectIntl, InjectedIntlProps } from 'react-intl';
+import { FormattedMessage, defineMessages, useIntl } from 'react-intl';
 import { changeLanguage } from 'store/state/language/operations';
 import { selectLocale } from 'store/state/language/selectors';
 
@@ -13,16 +13,16 @@ const translations = defineMessages({
 	pt: { id: 'language.selector.option.portuguese', defaultMessage: 'Portuguese' },
 });
 
-interface ILanguageSelectorProps extends InjectedIntlProps {
+interface ILanguageSelectorProps {
 	className?: string;
 	label?: React.ReactNode;
 }
 
 const LanguageSelector: React.FunctionComponent<ILanguageSelectorProps> = ({
-	intl,
 	className,
 	label = <FormattedMessage id="language.selector.label" defaultMessage="Select another available language" />,
 }) => {
+	const intl = useIntl();
 	const dispatch = useDispatch();
 	const locale = useSelector(selectLocale);
 
@@ -49,4 +49,4 @@ const LanguageSelector: React.FunctionComponent<ILanguageSelectorProps> = ({
 	);
 };
 
-export default injectIntl(LanguageSelector);
+export default LanguageSelector;
