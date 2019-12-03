@@ -7,7 +7,7 @@ import SEO from 'components/SEO';
 
 const toJSON = (value: any) => JSON.stringify(value, null, 2);
 
-const SecondPage = () => {
+const SecondPage: React.FunctionComponent = () => {
 	const [message, setMessage] = React.useState('');
 
 	const loadMessage = async () => {

@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import Layout from 'components/Layout';
 import SEO from 'components/SEO';
 
-const NotFoundPage = () => {
+const NotFoundPage: React.FunctionComponent = () => {
 	const [isInitialized, setIsInitialized] = React.useState(false);
 	React.useEffect(() => {
 		setIsInitialized(true);

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'gatsby';
 import { FormattedMessage } from 'react-intl';
 
@@ -6,7 +6,7 @@ import Layout from 'components/Layout';
 import GatsbyAstronoutImage from 'components/GatsbyAstronoutImage';
 import SEO from 'components/SEO';
 
-const IndexPage = () => {
+const IndexPage: React.FunctionComponent = () => {
 	return (
 		<Layout>
 			<FormattedMessage id="home.pagetitle" defaultMessage="Home">

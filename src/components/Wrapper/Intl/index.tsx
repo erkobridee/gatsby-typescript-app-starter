@@ -15,7 +15,7 @@ export const IntlWrapper: React.FunctionComponent = ({ children }) => {
 		}
 	}, []);
 
-	return <IntlProvider {...{ key: locale, ...language }}>{children}</IntlProvider>;
+	return <IntlProvider {...{ ...language, children, key: 'IntlProvider' }}></IntlProvider>;
 };
 
 export default IntlWrapper;
