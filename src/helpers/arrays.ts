@@ -1,5 +1,5 @@
 import { TArrayFilter, TJSValue } from 'helpers/definitions';
-import { isObject } from 'helpers/check';
+import { isObject, isArray } from 'helpers/check';
 
 /*
 function prop<T extends TJSValue>(object: T, key: string) {
@@ -90,15 +90,18 @@ function intersection<T>(arr1: T[], arr2: T[], byObjectProperty?: string): T[] {
  * check if the first parameter contains the values from the second parameter
  *
  * @param {T[]} sourceArray
- * @param {T[]} matchArray
+ * @param {T | T[]} matchValue
  * @param {string} byObjectProperty - optional parameter in case of array of objects
  *
  * @return {boolean} flag
  */
-function contains<T>(sourceArray: T[], matchArray: T[], byObjectProperty?: string): boolean {
-	const arr2Lenght = matchArray.length;
-	const arr3 = intersection<T>(sourceArray, matchArray, byObjectProperty);
-	return arr2Lenght === arr3.length;
+function contains<T>(sourceArray: T[], matchValue: T | T[], byObjectProperty?: string): boolean {
+	if (isArray(matchValue)) {
+		const arr2Lenght = matchValue.length;
+		const arr3 = intersection<T>(sourceArray, matchValue, byObjectProperty);
+		return arr2Lenght === arr3.length;
+	}
+	return filterIntersection(sourceArray, byObjectProperty)(matchValue as T);
 }
 
 /**
