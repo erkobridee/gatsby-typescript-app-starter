@@ -1,15 +1,5 @@
-// TODO: review the coverage support
-
-// const { pathsToModuleNameMapper } = require('ts-jest/utils');
-// const { compilerOptions } = require('./tsconfig');
-
-// https://kulshekhar.github.io/ts-jest/user/config/#options
 module.exports = {
 	preset: 'ts-jest',
-	transform: {
-		// '^.+\\.tsx?$': 'ts-jest',
-		'^.+\\.jsx?$': `<rootDir>/jest-helpers/jest-preprocess.js`,
-	},
 	moduleNameMapper: {
 		'.+\\.(css|styl|less|sass|scss)$': `identity-obj-proxy`,
 		'.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `<rootDir>/__mocks__/file-mock.js`,
@@ -25,6 +15,17 @@ module.exports = {
 	setupFilesAfterEnv: [`<rootDir>/jest-helpers/jest.setup.js`],
 	setupFiles: [`<rootDir>/jest-helpers/loadershim.js`],
 	cacheDirectory: `<rootDir>/.build/jest-temp/`,
-	// collectCoverage: true,
-	// collectCoverageFrom: ['src/**/*.{js,ts,jsx,tsx}', '!**/node_modules/**', '!**/vendor/**'],
+	testEnvironment: 'node',
+	globals: {
+		// we must specify a custom tsconfig for tests because we need the typescript transform
+		// to transform jsx into js rather than leaving it jsx such as the next build requires.  you
+		// can see this setting in tsconfig.jest.json -> "jsx": "react"
+		'ts-jest': {
+			tsConfig: `<rootDir>/jest-helpers/tsconfig.jest.json`,
+		},
+	},
+	collectCoverage: true,
+	collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**', '!**/vendor/**'],
+	coverageReporters: ['lcov', 'text-summary'],
+	reporters: ['default', 'jest-junit'],
 };

@@ -57,6 +57,7 @@
 		"identity-obj-proxy": "^3.0.0",
 		"intl-pluralrules": "^1.1.1",
 		"jest": "^24.9.0",
+		"jest-junit": "^10.0.0",
 		"node-sass": "^4.12.0",
 		"npm-run-all": "^4.1.5",
 		"postcss-preset-env": "^6.6.0",
@@ -92,7 +93,7 @@
 		"translations:extract": "TRANSLATIONS=true babel src --extensions '.ts,.tsx' --out-file .build/i18nExtractedMessages/compiled.js",
 		"translations:runner": "node scripts/translation-runner.js",
 		"translations": "npm-run-all -s translations:extract translations:runner",
-		"generate": "npm-run-all -s fonticons translations",
+		"generate": "npm-run-all -p fonticons translations",
 		"format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
 		"lint": "eslint 'src/**/*.{ts,tsx}'",
 		"type-check": "tsc",
@@ -101,14 +102,15 @@
 		"gatsby-build": "gatsby build --prefix-paths",
 		"gatsby-serve": "gatsby serve -H 0.0.0.0",
 		"clean:build": "node scripts/fs/rm .build/",
-		"clean": "npm-run-all -p clean:build fonticons:clean gatsby-clean",
+		"clean:coverage": "node scripts/fs/rm coverage/",
+		"clean": "npm-run-all -p clean:coverage clean:build fonticons:clean gatsby-clean",
+		"unit-tests": "jest --passWithNoTests",
 		"check": "npm-run-all -s type-check lint",
-		"base": "npm-run-all -s check fonticons translations",
+		"base": "npm-run-all -s generate check",
 		"develop": "npm-run-all -s base gatsby-develop",
 		"start": "npm run develop",
-		"build": "npm-run-all -s clean base gatsby-build ",
+		"build": "npm-run-all -s clean base unit-tests gatsby-build",
 		"serve": "npm-run-all -s build gatsby-serve",
-		"tests": "jest --passWithNoTests",
 		"gh-deploy": "gh-pages -d public",
 		"deploy": "PREFIX_PATH=true npm-run-all -s build gh-deploy"
 	},
@@ -121,5 +123,15 @@
 	],
 	"gatsby": {
 		"pathPrefix": "gatsby-typescript-app-starter"
+	},
+	"jest-junit": {
+		"suiteName": "jest tests",
+		"outputDirectory": "coverage",
+		"outputName": "junit.xml",
+		"uniqueOutputName": "false",
+		"classNameTemplate": "{classname}",
+		"titleTemplate": "{title}",
+		"ancestorSeparator": " › ",
+		"usePathForSuiteName": "true"
 	}
 }
