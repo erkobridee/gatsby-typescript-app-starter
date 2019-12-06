@@ -136,12 +136,12 @@ function symmetricDifference<T>(arr1: T[], arr2: T[], byObjectProperty?: string)
  * find a value inside of the given values array
  *
  * @param {T[]} values
- * @param {T} value
+ * @param {T | string} value
  * @param {string} byObjectProperty - optional parameter in case of array of objects
  *
  * @return {T | undefined} value founded or undefined
  */
-function find<T extends TJSValue>(values: T[], value: T, byObjectProperty?: string): T | undefined {
+function find<T extends TJSValue>(values: T[], value: T | string, byObjectProperty?: string): T | undefined {
 	return values.find(filterFindValue(value, byObjectProperty));
 }
 
@@ -154,10 +154,6 @@ function find<T extends TJSValue>(values: T[], value: T, byObjectProperty?: stri
  * @param {string} byObjectProperty - optional parameter in case of array of objects
  */
 function merge<T>(sourceArray: T[], withArray: T[], byObjectProperty?: string): T[] {
-	if (!byObjectProperty) {
-		return symmetricDifference(sourceArray, withArray);
-	}
-
 	return [
 		...sourceArray.map(item => {
 			const element = find(withArray, item, byObjectProperty);
