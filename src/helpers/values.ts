@@ -16,10 +16,13 @@ export const setPropertyValue = <Object, Key extends keyof Object, Value extends
 
 //----------------------------------------------------------------------------//
 
-export const randomFloat = (min: number, max: number): number => Math.random() * (max - min + 1) + min;
+export const randomFloat = (min: number, max: number): number => Math.random() * (max - min) + min;
+
+export const randomDecimalString = (min: number, max: number, fixed: number = 2): string =>
+	randomFloat(min, max).toFixed(fixed);
 
 export const randomDecimal = (min: number, max: number, fixed: number = 2): number =>
-	+randomFloat(min, max).toFixed(fixed);
+	+randomDecimalString(min, max, fixed);
 
 export const randomInt = (min: number, max: number): number => Math.floor(randomFloat(min, max));
 
