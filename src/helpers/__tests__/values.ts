@@ -48,6 +48,16 @@ describe('helpers/values', () => {
 			const min = 10;
 			const max = 30;
 			const fixed = 2;
+			let result = Values.randomDecimalString(min, max);
+			expect(`${result}`).toMatch(buildDecimalRegex(fixed));
+			const value = Number(result);
+			expect(value >= min && value <= max).toBeTruthy();
+		});
+
+		it('should get a decimal number with fixed 3', () => {
+			const min = 10;
+			const max = 30;
+			const fixed = 3;
 			let result = Values.randomDecimalString(min, max, fixed);
 			expect(`${result}`).toMatch(buildDecimalRegex(fixed));
 			const value = Number(result);
@@ -56,6 +66,16 @@ describe('helpers/values', () => {
 	});
 
 	describe('randomDecimal', () => {
+		it('should get a decimal number with fixed {1,2}', () => {
+			const min = 10;
+			const max = 30;
+			const fixed = 2;
+			let result = Values.randomDecimal(min, max);
+			expect(`${result}`).toMatch(buildDecimalRegex(`1,${fixed}`));
+			const value = Number(result);
+			expect(value >= min && value <= max).toBeTruthy();
+		});
+
 		it('should get a decimal number with fixed {1,3}', () => {
 			const min = 10;
 			const max = 30;
@@ -82,7 +102,7 @@ describe('helpers/values', () => {
 			const min = 1;
 			const max = 5;
 			const padStart = 2;
-			const result = Values.randomIntAsString(min, max, padStart);
+			const result = Values.randomIntAsString(min, max);
 			expect(`${result}`).toMatch(buildRandomIntAsStringRegex(padStart));
 			expect(result.length).toEqual(padStart);
 			const value = Number(result);
@@ -108,6 +128,14 @@ describe('helpers/values', () => {
 	});
 
 	describe('randomValue', () => {
+		it('should return undefined to not object or array as parameter', () => {
+			expect(Values.randomValue(null)).toBeUndefined();
+			expect(Values.randomValue(undefined)).toBeUndefined();
+			expect(Values.randomValue(NaN)).toBeUndefined();
+			expect(Values.randomValue(123)).toBeUndefined();
+			expect(Values.randomValue('hello')).toBeUndefined();
+		});
+
 		describe('in an object values', () => {
 			it('should get a random value from a given object', () => {
 				const obj = { att1: 'value 1', att2: 'value 2', att3: 'value 3' };
@@ -158,6 +186,18 @@ describe('helpers/values', () => {
 		const pageSize = 5;
 		const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+		it('should have an empty response to an empty data array', () => {
+			const result = Values.paginate([], 0, pageSize);
+			expect(result).toBeDefined();
+			expect(result).toHaveLength(0);
+		});
+
+		it('should use the default values to get the first page', () => {
+			const result = Values.paginate(values);
+			expect(result).toBeDefined();
+			expect(result).toHaveLength(10);
+		});
+
 		it('should get the first page', () => {
 			const result = Values.paginate(values, 0, pageSize);
 			expect(result).toBeDefined();
@@ -169,12 +209,26 @@ describe('helpers/values', () => {
 			expect(result).toBeDefined();
 			expect(result).toHaveLength(pageSize);
 		});
+
+		it('should get last 3 items from the array', () => {
+			const result = Values.paginate(values, 7, pageSize);
+			expect(result).toBeDefined();
+			expect(result).toHaveLength(3);
+		});
 	});
 
 	describe('randomSetOfData', () => {
-		it('should get a random set of data', () => {
+		const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+		it('should get a random set of data between 1 and 10', () => {
+			const result = Values.randomSetOfData(values);
+			expect(result).toBeDefined();
+			const { length } = result;
+			expect(length >= 1 && length <= 10).toBeTruthy();
+		});
+
+		it('should get a random set of data with 5 items', () => {
 			const pageSize = 5;
-			const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 			const result = Values.randomSetOfData(values, pageSize);
 			expect(result).toBeDefined();
 			expect(result).toHaveLength(pageSize);
@@ -182,9 +236,23 @@ describe('helpers/values', () => {
 	});
 
 	describe('randomAmountOfData', () => {
-		it('should get a random amount of data', () => {
+		const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+		it('should get an empty array to a given empty data array', () => {
+			const result = Values.randomAmountOfData([], 10);
+			expect(result).toBeDefined();
+			expect(result).toHaveLength(0);
+		});
+
+		it('should get a random amount of data between 1 and 10', () => {
+			const result = Values.randomAmountOfData(values);
+			expect(result).toBeDefined();
+			const { length } = result;
+			expect(length >= 1 && length <= 10).toBeTruthy();
+		});
+
+		it('should get a random amount of data with 5 items', () => {
 			const pageSize = 5;
-			const values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 			const result = Values.randomAmountOfData(values, pageSize);
 			expect(result).toBeDefined();
 			expect(result).toHaveLength(pageSize);
