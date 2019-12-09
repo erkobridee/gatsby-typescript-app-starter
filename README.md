@@ -113,6 +113,8 @@ A quick look at the top-level files and directories you'll see in this project. 
 
 -   **`gatsby-wrap-root-element.js`** - used by **`gatsby-browser.js`** as the `export.wrapRootElement`, more details about it please check the [Gatsby browser APIs - wrapRootElement](https://www.gatsbyjs.org/docs/browser-apis/#wrapRootElement). The wrappers used by the application they are defined at the `src/components/Wrapper` folder.
 
+-   **`jest.config.js`** - project jest configs
+
 -   **`package-lock.json`** - (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
 -   **`package.json`** - A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
