@@ -33,14 +33,14 @@ export const randomIntAsString = (min: number, max: number, padStart: number = 2
 export const randomBoolean = (): boolean => randomInt(0, 1) === 0;
 
 export const randomValue = <T extends any>(options: T | T[], inNumber?: number): T | undefined => {
-	if (!isObject(options) || !isArray(options)) {
+	if (!isObject(options) && !isArray(options)) {
 		return;
 	}
 	if (isObject(options)) {
 		options = Object.values(options);
 	}
 	inNumber = Math.min(inNumber || Number.MAX_SAFE_INTEGER, options.length);
-	return options[randomInt(0, inNumber)];
+	return options[randomInt(0, inNumber - 1)];
 };
 
 //----------------------------------------------------------------------------//
