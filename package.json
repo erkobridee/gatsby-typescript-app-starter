@@ -76,7 +76,11 @@
 	"keywords": [
 		"gatsby",
 		"starter",
-		"typescript"
+		"sass",
+		"typescript",
+		"jest",
+		"unit tests",
+		"unit tests coverage"
 	],
 	"license": "MIT",
 	"scripts": {
