@@ -39,12 +39,12 @@ export const isString = <T extends string>(value: any): value is T =>
 export const isNumber = <T extends number>(value: any): value is T =>
 	value !== null && typeof value === JSTypeof.NUMBER;
 
+export const isTrue = (value: any): boolean => TRUTHY.test(value) && !!value;
+
 export const isReactElement = <T extends React.ReactNode>(value: any): value is T =>
 	isObjectBasicCheck(value) && '$$typeof' in value;
 
-export const isEmptyChildren = (children: React.ReactNode) => React.Children.count(children) === 0;
-
-export const isTrue = (value: any): boolean => TRUTHY.test(value) && !!value;
+export const isEmptyChildren = (value: React.ReactNode) => React.Children.count(value) === 0;
 
 // @end: check values
 // ---------------------------------------------------------------------------- //

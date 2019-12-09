@@ -1,3 +1,4 @@
+import React from 'react';
 import * as Check from '../check';
 
 describe('helpers/check', () => {
@@ -108,6 +109,72 @@ describe('helpers/check', () => {
 			expect(Check.isTrue(NaN)).toBeFalsy();
 			expect(Check.isTrue([])).toBeFalsy();
 			expect(Check.isTrue({})).toBeFalsy();
+		});
+	});
+
+	describe('isReactElement', () => {
+		it('should not be', () => {
+			expect(Check.isReactElement(() => undefined)).toBeFalsy();
+			expect(Check.isReactElement({})).toBeFalsy();
+			expect(Check.isReactElement([])).toBeFalsy();
+			expect(Check.isReactElement('')).toBeFalsy();
+			expect(Check.isReactElement(null)).toBeFalsy();
+			expect(Check.isReactElement(undefined)).toBeFalsy();
+		});
+
+		it('should be', () => {
+			expect(Check.isReactElement(<></>)).toBeTruthy();
+			expect(Check.isReactElement(<div>hello world</div>)).toBeTruthy();
+			expect(Check.isReactElement(<span>hello world</span>)).toBeTruthy();
+		});
+	});
+
+	describe('isEmptyChildren', () => {
+		const getReactComponentChildren = (element: JSX.Element) => {
+			const { props } = element;
+			return props.children;
+		};
+
+		it('should not be', () => {
+			expect(
+				Check.isEmptyChildren(
+					getReactComponentChildren(
+						<>
+							<div>
+								<span>
+									<p>hello</p>
+								</span>
+							</div>
+						</>
+					)
+				)
+			).toBeFalsy();
+			expect(
+				Check.isEmptyChildren(
+					getReactComponentChildren(
+						<div>
+							<span>
+								<p>hello</p>
+							</span>
+						</div>
+					)
+				)
+			).toBeFalsy();
+			expect(
+				Check.isEmptyChildren(
+					getReactComponentChildren(
+						<span>
+							<p>hello</p>
+						</span>
+					)
+				)
+			).toBeFalsy();
+		});
+
+		it('should be', () => {
+			expect(Check.isEmptyChildren(getReactComponentChildren(<></>))).toBeTruthy();
+			expect(Check.isEmptyChildren(getReactComponentChildren(<div></div>))).toBeTruthy();
+			expect(Check.isEmptyChildren(getReactComponentChildren(<span></span>))).toBeTruthy();
 		});
 	});
 });
