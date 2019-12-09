@@ -258,7 +258,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 This project has unit tests support that runs on top of the [Jest](https://jestjs.io/) - ( [Docs](https://jestjs.io/docs/en/getting-started) | [API](https://jestjs.io/docs/en/api) ).
 
-The jest unit tests will be executed right before the gatsby-build on the build flow `npm run build` or you can execute it anytime with the following commands: `npm run unit-tests`, `jest` and if you what to keep it running use `jest --watch`;
+The jest unit tests will be executed right before the gatsby-build on the build flow `npm run build` or you can execute it anytime with the following commands: `npm run unit-tests`, `jest` or if you want to keep it running use `jest --watch`;
 
 ### Useful links related to TypeScript + React + Jest
 
