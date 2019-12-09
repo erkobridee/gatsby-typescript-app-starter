@@ -33,6 +33,7 @@ describe('helpers/check', () => {
 	describe('isObject', () => {
 		it('should be an object', () => {
 			expect(Check.isObject({})).toBeTruthy();
+			expect(Check.isObject({ a: 'a', number: 1, boolean: true, array: [1, 2, 3] })).toBeTruthy();
 		});
 
 		it('should not be an object', () => {
