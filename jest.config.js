@@ -14,7 +14,6 @@ module.exports = {
 	setupFilesAfterEnv: [`<rootDir>/jest-helpers/jest.setup.js`],
 	setupFiles: [`<rootDir>/jest-helpers/loadershim.js`],
 	cacheDirectory: `<rootDir>/.build/jest-temp/`,
-	testEnvironment: 'node',
 	globals: {
 		// we must specify a custom tsconfig for tests because we need the typescript transform
 		// to transform jsx into js rather than leaving it jsx such as the next build requires.  you
