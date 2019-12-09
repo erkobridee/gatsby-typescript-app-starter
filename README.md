@@ -260,6 +260,10 @@ This project has unit tests support that runs on top of the [Jest](https://jestj
 
 The jest unit tests will be executed right before the gatsby-build on the build flow `npm run build` or you can execute it anytime with the following commands: `npm run unit-tests`, `jest` or if you want to keep it running use `jest --watch`;
 
+The jest mock files should be placed inside a directory with the given name: `__mock__`, read more about it on the [Jest Docs](https://jestjs.io/docs/en/manual-mocks).
+
+About the the jest unit tests detection, it will look for the content of directories with the name `__tests__` or files with the sufix `{test|spec}.[jt]sx?`, read more about it on the [Jest Docs](https://jestjs.io/docs/en/configuration#testregex-string--arraystring).
+
 ### Useful links related to TypeScript + React + Jest
 
 -   [[GitHub] facebook/jest - TypeScript](https://github.com/facebook/jest/tree/master/examples/typescript)
