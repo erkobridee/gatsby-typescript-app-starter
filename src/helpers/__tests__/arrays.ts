@@ -42,6 +42,36 @@ describe('helpers/arrays', () => {
 		});
 	});
 
+	describe('contains', () => {
+		describe('on plain arrays', () => {
+			const values = ['a', 'b', 'c', 'd', 'e', 'f'];
+
+			it('should contain a value', () => {
+				const check = 'c';
+				expect(Arrays.contains(values, check)).toBeTruthy();
+			});
+
+			it('should contain a set of values', () => {
+				const check = ['c', 'd'];
+				expect(Arrays.contains(values, check)).toBeTruthy();
+			});
+		});
+
+		describe('on object arrays', () => {
+			const values = [{ att: 'a' }, { att: 'b' }, { att: 'c' }, { att: 'd' }, { att: 'e' }, { att: 'f' }];
+
+			it('should contain a value', () => {
+				const check = { att: 'c' };
+				expect(Arrays.contains(values, check, 'att')).toBeTruthy();
+			});
+
+			it('should contain a set of values', () => {
+				const check = [{ att: 'c' }, { att: 'd' }];
+				expect(Arrays.contains(values, check, 'att')).toBeTruthy();
+			});
+		});
+	});
+
 	describe('difference', () => {
 		it('on plain arrays', () => {
 			let valuesA = ['a', 'b', 'c', 'd'];

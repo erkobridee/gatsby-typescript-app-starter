@@ -171,8 +171,8 @@ function merge<T>(sourceArray: T[], withArray: T[], byObjectProperty?: string): 
 export {
 	unique as arrayUnique,
 	intersection as arrayIntersection,
-	difference as arrayDifference,
 	contains as arrayContains,
+	difference as arrayDifference,
 	symmetricDifference as arraySymmetricDifference,
 	find as arrayFind,
 	merge as arrayMerge,
@@ -183,8 +183,8 @@ export {
 export default {
 	unique,
 	intersection,
-	difference,
 	contains,
+	difference,
 	symmetricDifference,
 	find,
 	merge,
