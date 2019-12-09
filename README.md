@@ -56,6 +56,9 @@ A quick look at the top-level files and directories you'll see in this project. 
 
     .
     ├── node_modules
+    ├── __mock__
+    ├── coverage
+    ├── jest-helpers
     ├── scripts
     ├── src
     ├── static
@@ -68,16 +71,25 @@ A quick look at the top-level files and directories you'll see in this project. 
     ├── gatsby-node.js
     ├── gatsby-ssr.js
     ├── gatsby-wrap-root-element.js
+    ├── jest.config.js
     ├── package-lock.json
     ├── package.json
     ├── tsconfig.json
     └── README.md
+
+-   **`/__mock__`** - jest global mocks directory.
+
+-   **`/.build/jest-temp`** - jest unit tests cache directory.
 
 -   **`/.build/.i18nExtractedMessages`** - i18n messages extracted from the code and those messages will be used to generate the JSON translation files.
 
 -   **`/.cache`** - files manages by the Gatsby used to build the output on the **`/public`** folder.
 
 -   **`/node_modules`** - This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+
+-   **`/coverage`** - output of jest unit tests coverage reports.
+
+-   **`/jest-helpers`** - jest setup helpers.
 
 -   **`/public`** - Gatsby output directory, the content of this folder after the build flow must be copied to the server.
 
@@ -210,6 +222,8 @@ A quick look at the top-level files and directories you'll see in this project. 
 
 -   test the production outputed version: `npm run serve`
 
+-   run the jest unit tests and generate the coverage report: `npm run unit-tests`
+
 ## 🎓 Learning Gatsby
 
 Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
@@ -239,3 +253,53 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
     -   [Gatsby Docs - Environment Variables](www.gatsbyjs.org/docs/environment-variables/)
 
     -   [Building Apps with Gatsby](https://www.gatsbyjs.org/docs/building-apps-with-gatsby/)
+
+## 🧪Jest unit tests
+
+This project has unit tests support that runs on top of the [Jest](https://jestjs.io/) - ( [Docs](https://jestjs.io/docs/en/getting-started) | [API](https://jestjs.io/docs/en/api) ).
+
+The jest unit tests will be executed right before the gatsby-build on the build flow `npm run build` or you can execute it anytime with the following commands: `npm run unit-tests`, `jest` and if you what to keep it running use `jest --watch`;
+
+### Useful links related to TypeScript + React + Jest
+
+-   [[GitHub] facebook/jest - TypeScript](https://github.com/facebook/jest/tree/master/examples/typescript)
+
+-   [Add Testing | Gatsby.js Doc](https://www.gatsbyjs.org/docs/testing/)
+
+    -   [Unit Testing | Gatsby.js Doc](https://www.gatsbyjs.org/docs/unit-testing/)
+
+---
+
+-   [Understanding Jest Mocks | Rick Hanlon II - Medium](https://medium.com/@rickhanlonii/understanding-jest-mocks-f0046c68e53c)
+
+-   [Configuring Jest to show code coverage for all of your files](https://joshtronic.com/2017/10/24/configuring-jest-to-show-code-coverage-for-all-of-your-files/)
+
+-   [Best kept Jest secret: Testing only changed files with coverage reports | @stipsan - Medium](https://medium.com/@stipsan/best-kept-jest-secret-testing-only-changed-files-with-coverage-reports-3affc8b4d30f)
+
+---
+
+-   [Using Jest with TypeScript](https://basarat.gitbooks.io/typescript/docs/testing/jest.html)
+
+-   [Testing TypeScript with Jest](https://rjzaworski.com/2016/12/testing-typescript-with-jest)
+
+    -   [[GitHub] rjz/typescript-react-redux](https://github.com/rjz/typescript-react-redux)
+
+-   [Mocking TypeScript classes with Jest | David Guijarro - Medium](https://medium.com/@davguij/mocking-typescript-classes-with-jest-8ef992170d1d)
+
+    -   [[GitHub] davguij/typescript-jest-mocked-classes](https://github.com/davguij/typescript-jest-mocked-classes)
+
+-   [Debugging with TypeScript, Jest, ts-jest and Visual Studio Code](https://medium.com/@mtiller/debugging-with-typescript-jest-ts-jest-and-visual-studio-code-ef9ca8644132)
+
+-   [TypeScript - jest (ts-jest) | typescript Tutorial](https://riptutorial.com/typescript/example/29207/jest--ts-jest-)
+
+-   [[GitHub] kulshekhar/ts-jest](https://github.com/kulshekhar/ts-jest) - TypeScript preprocessor with sourcemap support for Jest
+
+-   [[GitHub] zeit / next.js - Testing with typescript + jest + ts-jest #8663](https://github.com/zeit/next.js/issues/8663) - tip to how to solve the jsx parsing problem
+
+-   [[GitHub] jest-community / jest-junit](https://github.com/jest-community/jest-junit) - A Jest reporter that creates compatible junit xml files
+
+---
+
+-   [Testing in React with Jest and Enzyme: An Introduction | @rossbulat - Medium](https://medium.com/@rossbulat/testing-in-react-with-jest-and-enzyme-an-introduction-99ce047dfcf8)
+
+-   [Test Driven Development in React with Jest and Enzyme | @rossbulat - Medium](https://medium.com/@rossbulat/testing-in-react-with-jest-and-enzyme-an-introduction-99ce047dfcf8)
