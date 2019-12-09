@@ -24,7 +24,12 @@ module.exports = {
 		},
 	},
 	collectCoverage: true,
-	collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**', '!**/vendor/**'],
+	collectCoverageFrom: [
+		'src/**/*.{ts,tsx}',
+		'!**/node_modules/**',
+		'!**/vendor/**',
+		'!src/helpers/{cssVariableTransform,language,console}.ts',
+	],
 	coverageReporters: ['lcov', 'text-summary'],
 	reporters: ['default', 'jest-junit'],
 };
