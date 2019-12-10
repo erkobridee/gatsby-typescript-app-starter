@@ -61,8 +61,12 @@ export const paginate = <T extends any>(data: T[], start: number = 0, pageSize: 
 	return data.slice(start, start + pageSize);
 };
 
-export const randomSetOfData = <T extends any>(data: T[], amount: number = randomInt(1, 10)): T[] =>
-	paginate(data, calculateAvailablePages(data, amount), amount);
+export const randomSetOfData = <T extends any>(data: T[], amount: number = randomInt(1, 10)): T[] => {
+	const pagesAmount = calculateAvailablePages(data, amount);
+	const randomPage = randomInt(1, pagesAmount);
+	const pageStart = (randomPage - 1) * amount;
+	return paginate(data, pageStart, amount);
+};
 
 export const randomAmountOfData = <T extends any>(data: T[], amount: number = randomInt(1, 10)): T[] => {
 	const output: T[] = [];
