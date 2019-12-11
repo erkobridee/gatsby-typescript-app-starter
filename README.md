@@ -256,7 +256,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
     -   [Building Apps with Gatsby](https://www.gatsbyjs.org/docs/building-apps-with-gatsby/)
 
--   [[Slides] Benefits of using TypeScript + Unit Testing](https://slides.com/erkobridee/benefits-typescript-unit-testing)
+-   [[Slides] Benefits of using TypeScript + React + Unit Testing](https://slides.com/erkobridee/benefits-typescript-react-unit-testing/)
 
 ## 🧪Jest unit tests
 
