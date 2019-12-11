@@ -256,6 +256,8 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
     -   [Building Apps with Gatsby](https://www.gatsbyjs.org/docs/building-apps-with-gatsby/)
 
+-   [[Slides] Benefits of using TypeScript + Unit Testing](https://slides.com/erkobridee/benefits-typescript-unit-testing)
+
 ## 🧪Jest unit tests
 
 This project has unit tests support that runs on top of the [Jest](https://jestjs.io/) - ( [Docs](https://jestjs.io/docs/en/getting-started) | [API](https://jestjs.io/docs/en/api) ).
