@@ -9,9 +9,11 @@ const dotenvConfig = dotenv.config({
 	path: dotenvPath,
 });
 
+/*
 if (dotenvConfig.error) {
 	console.log(`\n\n\ndotenv file not found: '${dotenvPath}'\n\n\n`);
 }
+*/
 
 const { parsed: dotenvParsed } = dotenvConfig;
 
@@ -19,4 +21,7 @@ if (dotenvParsed) {
 	console.log(`\n\ndotenv file '${dotenvPath}' loaded\n${JSON.stringify(dotenvParsed, null, 2)}\n\n`);
 }
 
-module.exports = dotenvParsed;
+module.exports = {
+	activeEnv,
+	dotenvParsed,
+};

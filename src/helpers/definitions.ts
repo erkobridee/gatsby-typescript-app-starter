@@ -150,6 +150,8 @@ export interface IRequestOptions {
 	method?: RequestMethod;
 	host?: string;
 	api?: string;
+	/** uses the values defined on the .env file for the host and api options */
+	useDefaultPrefix?: boolean;
 	urlPath: string;
 	variables?: IDictionary;
 	parameters?: IDictionary;

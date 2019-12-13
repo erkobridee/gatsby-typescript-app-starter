@@ -1,7 +1,6 @@
 const postcssPresetEnv = require('postcss-preset-env');
 
-const dotenvParsed = require('./scripts/load-dotenv-config');
-console.log(`\n\n\n>> gatsby-config.js\n${JSON.stringify(dotenvParsed, null, 2)}\n\n\n`);
+const { activeEnv } = require('./scripts/load-dotenv-config');
 
 const gatsbyConfig = {
 	siteMetadata: {
@@ -64,6 +63,16 @@ if (pathPrefix) {
 } else {
 	// this (optional) plugin enables Progressive Web App + Offline functionality
 	gatsbyConfig.plugins.push(`gatsby-plugin-offline`);
+}
+
+const isDevelopment = activeEnv === 'dev' || activeEnv === 'development';
+const proxyUrl = process.env.PROXY_URL || undefined;
+if (isDevelopment && proxyUrl) {
+	const proxyPrefix = process.env.API_PREFIX || 'api';
+	gatsbyConfig.proxy = {
+		prefix: `/${proxyPrefix}`,
+		url: proxyUrl,
+	};
 }
 
 module.exports = gatsbyConfig;

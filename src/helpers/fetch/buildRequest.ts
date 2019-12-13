@@ -47,13 +47,14 @@ function buildResponseOutput<R extends IAPIResponse = TAPIResponse>(
  */
 export async function buildRequest<R extends IAPIResponse = IAPIResponse>(options: IRequestOptions): Promise<R> {
 	let { parameters } = options;
+	const { useDefaultPrefix = false } = options;
 	const {
 		authorization,
 		method = RequestMethod.GET,
 		contentType = RequestContentTypes.JSON,
 		protocol,
-		host,
-		api,
+		host = useDefaultPrefix ? process.env.API_HOST || undefined : undefined,
+		api = useDefaultPrefix ? process.env.API_PREFIX || undefined : undefined,
 		urlPath,
 		variables = {},
 		headers: extraHeaders = {},

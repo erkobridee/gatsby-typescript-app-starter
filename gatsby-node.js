@@ -1,13 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const dotenvParsed = require('./scripts/load-dotenv-config');
-console.log(`\n\n\n>> gatsby-node.js\n${JSON.stringify(dotenvParsed, null, 2)}\n\n\n`);
+const { dotenvParsed } = require('./scripts/load-dotenv-config');
 
 exports.onCreateWebpackConfig = ({ actions }) => {
 	// make sure to have the process.env configs from the .env file available on the /src/* files
 	const plugins = [];
-	// const { parsed: dotenvParsed } = dotenvConfig;
 	if (dotenvParsed) {
 		const webpackDefinePluginConfig = {};
 		Object.keys(dotenvParsed).forEach(key => {
