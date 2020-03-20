@@ -102,7 +102,7 @@
 		"translations:runner": "node scripts/translation-runner.js",
 		"translations": "npm-run-all -s translations:extract translations:runner",
 		"generate": "npm-run-all -p fonticons translations",
-		"format": "prettier --write src/**/*.{js,jsx,ts,tsx}",
+		"format": "prettier --write 'src/**/*.{ts,tsx}'",
 		"lint": "eslint 'src/**/*.{ts,tsx}'",
 		"type-check": "tsc",
 		"gatsby-clean": "gatsby clean",

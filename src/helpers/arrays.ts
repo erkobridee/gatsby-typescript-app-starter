@@ -65,12 +65,9 @@ function filterFindValue<T extends TJSValue>(value: T, byObjectProperty?: string
  * @return {T[]} values without repetition
  */
 function unique<T>(values: T[], byObjectProperty?: string): T[] {
-	return values.reduce(
-		(unique, item) => {
-			return filterIntersection(unique, byObjectProperty)(item) ? unique : [...unique, item];
-		},
-		[] as T[]
-	);
+	return values.reduce((unique, item) => {
+		return filterIntersection(unique, byObjectProperty)(item) ? unique : [...unique, item];
+	}, [] as T[]);
 }
 
 /**

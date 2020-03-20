@@ -148,14 +148,7 @@ describe('helpers/arrays', () => {
 		it('on object arrays', () => {
 			let valuesA = [{ att: 'a' }, { att: 'b' }, { att: 'c' }, { att: 'd' }];
 			let valuesB = [{ att: 'c' }, { att: 'd' }, { att: 'e' }, { att: 'f' }];
-			let valuesResultExpected = [
-				{ att: 'a' },
-				{ att: 'b' },
-				{ att: 'c' },
-				{ att: 'd' },
-				{ att: 'e' },
-				{ att: 'f' },
-			];
+			let valuesResultExpected = [{ att: 'a' }, { att: 'b' }, { att: 'c' }, { att: 'd' }, { att: 'e' }, { att: 'f' }];
 
 			let values = Arrays.merge(valuesA, valuesB, 'att');
 			expect(values).toHaveLength(valuesResultExpected.length);

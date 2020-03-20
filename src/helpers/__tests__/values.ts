@@ -155,14 +155,7 @@ describe('helpers/values', () => {
 			});
 
 			it('should get a random value from an object array', () => {
-				const values: any[] = [
-					{ att: 'a' },
-					{ att: 'b' },
-					{ att: 'c' },
-					{ att: 'd' },
-					{ att: 'e' },
-					{ att: 'f' },
-				];
+				const values: any[] = [{ att: 'a' }, { att: 'b' }, { att: 'c' }, { att: 'd' }, { att: 'e' }, { att: 'f' }];
 				const randomValue = Values.randomValue(values);
 				expect(randomValue).toBeDefined();
 				expect(arrayFind(values, randomValue, 'att')).toBeDefined();
