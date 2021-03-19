@@ -10,11 +10,11 @@ import { TReducerMapFunction } from './definitions';
  * @return {TReducerMapFunction<S, A>} reducer function
  */
 export function createReducer<A extends Action = AnyAction, S = any>(initialState: S): TReducerMapFunction<S, A> {
-	return reducerMap => (state = initialState, action) => {
-		const { type = '__[[__not__defined__]]__' } = action || {};
-		const reducer = reducerMap[type];
-		return isFunction(reducer) ? reducer(state, action) : state;
-	};
+  return (reducerMap) => (state = initialState, action) => {
+    const { type = '__[[__not__defined__]]__' } = action || {};
+    const reducer = reducerMap[type];
+    return isFunction(reducer) ? reducer(state, action) : state;
+  };
 }
 
 export default createReducer;

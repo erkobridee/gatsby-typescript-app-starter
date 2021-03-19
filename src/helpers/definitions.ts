@@ -1,5 +1,3 @@
-import { RelativeTimeLocaleData } from '@formatjs/intl-utils';
-
 // ---------------------------------------------------------------------------- //
 // @begin: constants block
 
@@ -16,41 +14,41 @@ export const FALSY = /^(?:f(?:alse)?|no?|off|0)$/i;
 // @begin: enums block
 
 export enum JSTypeof {
-	UNDEFINED = 'undefined',
-	FUNCTION = 'function',
-	OBJECT = 'object',
-	STRING = 'string',
-	NUMBER = 'number',
+  UNDEFINED = 'undefined',
+  FUNCTION = 'function',
+  OBJECT = 'object',
+  STRING = 'string',
+  NUMBER = 'number',
 }
 
 export enum RequestProtocol {
-	HTTP = 'http',
-	HTTPS = 'https',
+  HTTP = 'http',
+  HTTPS = 'https',
 }
 
 /**
  * Defines HTTP Request Methods
  */
 export enum RequestMethod {
-	GET = 'GET',
-	POST = 'POST',
-	PUT = 'PUT',
-	PATCH = 'PATCH',
-	DELETE = 'DELETE',
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  PATCH = 'PATCH',
+  DELETE = 'DELETE',
 }
 
 /**
  * Defines request content types
  */
 export enum RequestContentTypes {
-	IMAGE = 'image/jpg, image/png',
-	JSON = 'application/json',
-	FORM = '',
+  IMAGE = 'image/jpg, image/png',
+  JSON = 'application/json',
+  FORM = '',
 }
 
 export enum APIResponseStatus {
-	SUCCESS = 'api:response::success',
-	ERROR = 'api:response::error',
+  SUCCESS = 'api:response::success',
+  ERROR = 'api:response::error',
 }
 
 // @end: enums block
@@ -63,15 +61,17 @@ export type TJSValue = TJSObject | any;
 
 export type TArrayFilter<Item> = (item: Item) => boolean;
 
-export type TFunction<Tuple extends any[] = any[], Return = any> = (...args: Tuple) => Return;
+export type TFunction<Tuple extends unknown[] = unknown[], Return = unknown> = (...args: Tuple) => Return;
 
 export type TEmptyCallback = () => void;
 
-export type TCallback<Tuple extends any[] = any[], Return = any> = TFunction<Tuple, Return> | TEmptyCallback;
+export type TCallback<Tuple extends unknown[] = unknown[], Return = unknown> =
+  | TFunction<Tuple, Return>
+  | TEmptyCallback;
 
-export type TTypeCallback<Return, Options = any> = (options?: Options) => Return;
+export type TTypeCallback<Return, Options = unknown> = (options?: Options) => Return;
 
-export type TRender<RenderOptions = any> = TFunction<[RenderOptions], JSX.Element> | React.ReactNode;
+export type TRender<RenderOptions = unknown> = TFunction<[RenderOptions], JSX.Element> | React.ReactNode;
 
 //---
 
@@ -86,78 +86,79 @@ export type TAPIResponse = IStringAPIResponse | IAPIResponse;
 // ---------------------------------------------------------------------------- //
 // @begin: interfaces block
 
+/* eslint-disable-next-line */
 export interface IDictionary<T = any> {
-	[key: string]: T;
+  [key: string]: T;
 }
 
 export interface IProjectWindow extends Window {
-	CSS?: any;
+  /* eslint-disable-next-line */
+  CSS?: any;
 }
 
 export interface ILocale {
-	locale: string;
-	localeData: RelativeTimeLocaleData;
-	messages: IDictionary<string>;
+  locale: string;
+  messages: IDictionary<string>;
 }
 
-export interface IBaseModel<T = any> {
-	readonly __innerprops__: T;
+export interface IBaseModel<T = unknown> {
+  readonly __innerprops__: T;
 }
 
-export interface IBaseResponse<T = any> {
-	status: APIResponseStatus;
-	statusCode: number;
-	data: T;
-	/** defined when the API has "pagination" support */
-	totalCount?: number;
+export interface IBaseResponse<T = unknown> {
+  status: APIResponseStatus;
+  statusCode: number;
+  data: T;
+  /** defined when the API has "pagination" support */
+  totalCount?: number;
 }
 
 export interface ICancelableBaseResponse<R extends IAPIResponse = IAPIResponse> {
-	controller?: AbortController;
-	request: TTypeCallback<Promise<R>>;
+  controller?: AbortController;
+  request: TTypeCallback<Promise<R>>;
 }
 
 /**
  * Base response object returned from the buildRequest
  */
-export interface IAPIResponse<T = any> {
-	readonly statusCode: number;
-	readonly headers: Headers;
-	readonly body: T;
+export interface IAPIResponse<T = unknown> {
+  readonly statusCode: number;
+  readonly headers: Headers;
+  readonly body: T;
 
-	// defined to be able to use the Pick<IAPIResponse, '__bodyType__'>
-	// and read the generic type assigned to it
-	__bodyType__?: T;
+  // defined to be able to use the Pick<IAPIResponse, '__bodyType__'>
+  // and read the generic type assigned to it
+  __bodyType__?: T;
 }
 
 export interface IStringAPIResponse<T = string> extends IAPIResponse<T> {}
 
 export interface IPaginationRequestParams {
-	offset?: number;
-	page?: number;
-	countPerPage: number;
-	previousTotalCount?: number;
+  offset?: number;
+  page?: number;
+  countPerPage: number;
+  previousTotalCount?: number;
 }
 
 /**
  * Defines api request options that is used to build an api call.
  */
 export interface IRequestOptions {
-	/** like passing the access token with the value: `Bearer ${accessToken}` */
-	authorization?: string;
-	contentType?: RequestContentTypes;
-	protocol?: RequestProtocol | string;
-	method?: RequestMethod;
-	host?: string;
-	api?: string;
-	/** uses the values defined on the .env file for the host and api options */
-	useDefaultPrefix?: boolean;
-	urlPath: string;
-	variables?: IDictionary;
-	parameters?: IDictionary;
-	headers?: IDictionary;
-	noCache?: boolean;
-	signal?: AbortSignal;
+  /** like passing the access token with the value: `Bearer ${accessToken}` */
+  authorization?: string;
+  contentType?: RequestContentTypes;
+  protocol?: RequestProtocol | string;
+  method?: RequestMethod;
+  host?: string;
+  api?: string;
+  /** uses the values defined on the .env file for the host and api options */
+  useDefaultPrefix?: boolean;
+  urlPath: string;
+  variables?: IDictionary;
+  parameters?: IDictionary;
+  headers?: IDictionary;
+  noCache?: boolean;
+  signal?: AbortSignal;
 }
 
 // @end: interfaces block

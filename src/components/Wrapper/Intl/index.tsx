@@ -5,17 +5,17 @@ import { selectLanguage } from 'store/state/language/selectors';
 import { changeLanguage } from 'store/state/language/operations';
 
 export const IntlWrapper: React.FunctionComponent = ({ children }) => {
-	const dispatch = useDispatch();
-	const language = useSelector(selectLanguage);
-	const { locale } = language;
+  const dispatch = useDispatch();
+  const language = useSelector(selectLanguage);
+  const { locale } = language;
 
-	React.useEffect(() => {
-		if (!language.messages) {
-			dispatch(changeLanguage(locale));
-		}
-	}, []);
+  React.useEffect(() => {
+    if (!language.messages) {
+      dispatch(changeLanguage(locale));
+    }
+  }, []);
 
-	return <IntlProvider {...{ ...language, children, key: 'IntlProvider' }}></IntlProvider>;
+  return <IntlProvider {...{ ...language, children, key: 'IntlProvider' }}></IntlProvider>;
 };
 
 export default IntlWrapper;

@@ -11,21 +11,21 @@ type TConsoleError = (message?: any, ...optionalParams: any[]) => void;
 const consoleError: TConsoleError = console.error.bind(console);
 // eslint-disable-next-line
 console.error = (message: any, ...args: any[]) => {
-	if (
-		typeof message === 'string' &&
-		(message.startsWith('[React Intl] Missing message:') ||
-			message.startsWith('[React Intl] Missing locale data for locale:'))
-	) {
-		return;
-	}
-	consoleError(message, ...args);
+  const strMessage = String(message);
+  if (
+    strMessage.startsWith('Error: [@formatjs/intl Error MISSING_TRANSLATION] Missing message:') ||
+    strMessage.startsWith('Error: [@formatjs/intl Error MISSING_TRANSLATION] Missing locale data for locale:')
+  ) {
+    return;
+  }
+  consoleError(message, ...args);
 };
 
 //----------------------------------------------------------------------------//
 
 // redefine the console object
 if (process.env.NODE_ENV === 'production') {
-	console.log = () => undefined;
+  console.log = () => undefined;
 }
 
 export default console;

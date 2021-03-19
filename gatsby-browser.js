@@ -13,8 +13,8 @@ import withWrapper from './gatsby-wrap-root-element';
 
 // eslint-disable-next-line import/prefer-default-export
 export const onClientEntry = () => {
-	console.log('gatsby browser > onClientEntry > start');
-	return cssVariableTransform().finally(() => console.log('gatsby browser > onClientEntry > finished'));
+  console.log('gatsby browser > onClientEntry > start');
+  return cssVariableTransform().finally(() => console.log('gatsby browser > onClientEntry > finished'));
 };
 
 export const wrapRootElement = withWrapper;
