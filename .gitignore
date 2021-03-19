@@ -62,8 +62,10 @@ typings/
 !.env.example
 
 # gatsby files
-.cache/
 public
+.cache
+
+.husky
 
 # Mac files
 .DS_Store
