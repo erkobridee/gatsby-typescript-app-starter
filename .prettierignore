@@ -1,1 +1,6 @@
+.cache
+.husky
+
+package-lock.json
+
 src/assets/languages/**/*.json

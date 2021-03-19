@@ -4,15 +4,15 @@ const args = require('yargs').usage('Usage: $0 [directory name]').argv;
 const [dirname] = args._;
 
 async function createDirectory() {
-	try {
-		await fse.ensureDir(dirname);
-	} catch (err) {
-		console.log(err);
-	}
+  try {
+    await fse.ensureDir(dirname);
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 if (dirname) {
-	createDirectory();
+  createDirectory();
 } else {
-	console.log(`Usage: ${args.$0} [directory name]`);
+  console.log(`Usage: ${args.$0} [directory name]`);
 }

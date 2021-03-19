@@ -14,28 +14,28 @@ import Footer from './Footer';
 import './_styles.scss';
 
 interface ILayout {
-	children: React.ReactNode;
-	displayFooter?: boolean;
+  children: React.ReactNode;
+  displayFooter?: boolean;
 }
 
 const Layout: React.FunctionComponent<ILayout> = ({ children, displayFooter = true }) => {
-	const data = useStaticQuery(graphql`
-		query SiteTitleQuery {
-			site {
-				siteMetadata {
-					title
-				}
-			}
-		}
-	`);
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
 
-	return (
-		<div className="layout">
-			<Header siteTitle={data.site.siteMetadata.title} />
-			<div className="layout__content">{children}</div>
-			{displayFooter && <Footer />}
-		</div>
-	);
+  return (
+    <div className="layout">
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <div className="layout__content">{children}</div>
+      {displayFooter && <Footer />}
+    </div>
+  );
 };
 
 export default Layout;

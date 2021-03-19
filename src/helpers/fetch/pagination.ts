@@ -2,10 +2,10 @@ import { isUndefined, isNumber } from 'helpers/check';
 import { IPaginationRequestParams } from 'helpers/definitions';
 
 export interface IHasMoreDataOptions {
-	offset?: number;
-	previousLength?: number;
-	length: number;
-	totalCount: number;
+  offset?: number;
+  previousLength?: number;
+  length: number;
+  totalCount: number;
 }
 
 /**
@@ -17,18 +17,18 @@ export interface IHasMoreDataOptions {
  * @returns {boolean} boolean
  */
 export const hasMoreData = (options: IHasMoreDataOptions): boolean => {
-	const { offset, previousLength, length, totalCount } = options;
+  const { offset, previousLength, length, totalCount } = options;
 
-	if (isUndefined(offset) && isUndefined(previousLength) && isNumber(length) && isNumber(totalCount)) {
-		return length > 0 && length < totalCount - 1; // totalCount - 1, because the JS Array first index is 0
-	}
+  if (isUndefined(offset) && isUndefined(previousLength) && isNumber(length) && isNumber(totalCount)) {
+    return length > 0 && length < totalCount - 1; // totalCount - 1, because the JS Array first index is 0
+  }
 
-	if (isNumber(length) && isNumber(totalCount) && (isNumber(offset) || isNumber(previousLength))) {
-		const currentTotal = (offset ? offset : previousLength || 0) + length;
-		return length > 0 && currentTotal < totalCount - 1; // totalCount - 1, because the JS Array first index is 0
-	}
+  if (isNumber(length) && isNumber(totalCount) && (isNumber(offset) || isNumber(previousLength))) {
+    const currentTotal = (offset ? offset : previousLength || 0) + length;
+    return length > 0 && currentTotal < totalCount - 1; // totalCount - 1, because the JS Array first index is 0
+  }
 
-	return false;
+  return false;
 };
 
 /**
@@ -39,29 +39,29 @@ export const hasMoreData = (options: IHasMoreDataOptions): boolean => {
  * @returns {T} processed params
  */
 export const updatePaginationAttributes = <T extends IPaginationRequestParams = IPaginationRequestParams>(
-	params: T
+  params: T
 ): T => {
-	const { countPerPage, previousTotalCount } = params;
-	let { offset, page } = params;
+  const { countPerPage, previousTotalCount } = params;
+  const { offset, page } = params;
 
-	if (offset || page) {
-		return params;
-	}
+  if (offset || page) {
+    return params;
+  }
 
-	if (isNumber(previousTotalCount)) {
-		if (isUndefined(offset) && isUndefined(page)) {
-			params.page = Math.floor(previousTotalCount / countPerPage);
-			return params;
-		}
-	}
+  if (isNumber(previousTotalCount)) {
+    if (isUndefined(offset) && isUndefined(page)) {
+      params.page = Math.floor(previousTotalCount / countPerPage);
+      return params;
+    }
+  }
 
-	return {
-		...params,
-		page: 0,
-	};
+  return {
+    ...params,
+    page: 0,
+  };
 };
 
 export default {
-	updatePaginationAttributes,
-	hasMoreData,
+  updatePaginationAttributes,
+  hasMoreData,
 };

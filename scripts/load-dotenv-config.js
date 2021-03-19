@@ -6,7 +6,7 @@ const dotenvPath = path.resolve(__dirname, '..', `.env.${activeEnv}`);
 
 //www.gatsbyjs.org/docs/environment-variables/
 const dotenvConfig = dotenv.config({
-	path: dotenvPath,
+  path: dotenvPath,
 });
 
 /*
@@ -18,10 +18,10 @@ if (dotenvConfig.error) {
 const { parsed: dotenvParsed } = dotenvConfig;
 
 if (dotenvParsed) {
-	console.log(`\n\ndotenv file '${dotenvPath}' loaded\n${JSON.stringify(dotenvParsed, null, 2)}\n\n`);
+  console.log(`\n\ndotenv file '${dotenvPath}' loaded\n${JSON.stringify(dotenvParsed, null, 2)}\n\n`);
 }
 
 module.exports = {
-	activeEnv,
-	dotenvParsed,
+  activeEnv,
+  dotenvParsed,
 };

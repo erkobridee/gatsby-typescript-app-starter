@@ -10,17 +10,17 @@ import buildRequest from './buildRequest';
  * @returns {Promise<R extends IAPIResponse = IAPIResponse>} promise
  */
 export function buildCancelableRequest<R extends IAPIResponse = IAPIResponse>(
-	options: IRequestOptions
+  options: IRequestOptions
 ): ICancelableBaseResponse<R> {
-	const controller = new AbortController();
-	const signal = controller.signal;
+  const controller = new AbortController();
+  const signal = controller.signal;
 
-	return {
-		request: () =>
-			buildRequest<R>({
-				...options,
-				signal,
-			}),
-		controller,
-	};
+  return {
+    request: () =>
+      buildRequest<R>({
+        ...options,
+        signal,
+      }),
+    controller,
+  };
 }

@@ -4,39 +4,39 @@ import { IPhotoEntity } from 'data/schemas/JsonPlaceholder';
 export interface IPhotoProps extends IPhotoEntity {}
 
 export interface IPhotoModel extends IBaseModel<IPhotoProps> {
-	readonly id: number;
-	readonly title: string;
-	readonly url: string;
+  readonly id: number;
+  readonly title: string;
+  readonly url: string;
 }
 
 export default class PhotoModel implements IPhotoModel {
-	private props: IPhotoProps;
+  private props: IPhotoProps;
 
-	constructor(props: IPhotoProps) {
-		this.props = props;
-	}
+  constructor(props: IPhotoProps) {
+    this.props = props;
+  }
 
-	get __innerprops__() {
-		return this.props;
-	}
+  get __innerprops__() {
+    return this.props;
+  }
 
-	get id() {
-		return this.props.id;
-	}
+  get id() {
+    return this.props.id;
+  }
 
-	get title() {
-		return this.props.title;
-	}
+  get title() {
+    return this.props.title;
+  }
 
-	get url() {
-		return `//lorempixel.com/600/400/?_=${this.props.id}}`;
-	}
+  get url() {
+    return `//lorempixel.com/600/400/?_=${this.props.id}}`;
+  }
 
-	toJSON() {
-		return {
-			id: this.id,
-			title: this.title,
-			url: this.url,
-		};
-	}
+  toJSON() {
+    return {
+      id: this.id,
+      title: this.title,
+      url: this.url,
+    };
+  }
 }
