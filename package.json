@@ -2,7 +2,7 @@
   "name": "gatsby-typescript-app-starter",
   "private": true,
   "description": "A simple typescript application starter to get up and developing quickly with Gatsby",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "author": "Erko Bridee <erko.bridee@gmail.com>",
   "dependencies": {
     "abortcontroller-polyfill": "^1.7.1",
