@@ -1,0 +1,1 @@
+(self.webpackChunkgatsby_typescript_app_starter=self.webpackChunkgatsby_typescript_app_starter||[]).push([[689],{1811:function(s){"use strict";s.exports=JSON.parse('{"message":"hello world"}')}}]);
