@@ -1,5 +1,5 @@
 import * as React from 'react';
-import cn from 'classnames';
+import cn from 'clsx';
 import { useSelector, useDispatch } from 'react-redux';
 import { FormattedMessage, defineMessages, useIntl } from 'react-intl';
 import { changeLanguage } from 'store/state/language/operations';
