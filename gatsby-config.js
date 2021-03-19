@@ -10,6 +10,7 @@ const gatsbyConfig = {
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
@@ -17,8 +18,8 @@ const gatsbyConfig = {
 				path: `${__dirname}/src/assets/images`,
 			},
 		},
-		`gatsby-transformer-sharp`,
 		`gatsby-plugin-sharp`,
+		`gatsby-transformer-sharp`,
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
@@ -34,11 +35,9 @@ const gatsbyConfig = {
 		{
 			resolve: `gatsby-plugin-sass`,
 			options: {
-				precision: 10,
 				postCssPlugins: [postcssPresetEnv()],
 			},
 		},
-		`gatsby-plugin-typescript`,
 		{
 			resolve: `gatsby-plugin-create-client-paths`,
 			options: { prefixes: [`/photos/*`] },
